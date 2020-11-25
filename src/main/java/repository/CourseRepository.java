@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 public interface CourseRepository extends CrudRepository<CourseEntity, Integer> {
     CourseEntity findById(int id);
     
-    List<CourseEntity> findByNameContainingOrFeePlanContaining(String name,String feeplan);
+    List<CourseEntity> findByNameContaining(String name);
 }

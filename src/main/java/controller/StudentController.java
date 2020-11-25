@@ -42,31 +42,31 @@ public class StudentController {
         return "homePage";
     }
 
-    @RequestMapping(value = "/course", method = RequestMethod.GET)
+    @RequestMapping(value = "/courseHomePage", method = RequestMethod.GET)
     public String showProduct(Model model) {
         List<CourseEntity> courseList = (List<CourseEntity>) courseRepo.findAll();
 
         model.addAttribute("courseList", courseList);
 
-        return "course";
+        return "courseHomePage";
     }
 
-    @RequestMapping(value = "/center", method = RequestMethod.GET)
+    @RequestMapping(value = "/centerHomePage", method = RequestMethod.GET)
     public String showCenter(Model model) {
         List<CenterEntity> centerList = (List<CenterEntity>) centerRepo.findAll();
 
         model.addAttribute("centerList", centerList);
 
-        return "center";
+        return "centerHomePage";
     }
 
-    @RequestMapping(value = "/batch", method = RequestMethod.GET)
+    @RequestMapping(value = "/batchHomePage", method = RequestMethod.GET)
     public String showBatch(Model model) {
         List<BatchEntity> batchList = (List<BatchEntity>) batchRepo.findAll();
 
         model.addAttribute("batchList", batchList);
 
-        return "batch";
+        return "batchHomePage";
     }
     @RequestMapping(value = "/infomation", method = RequestMethod.GET)
     public String showInfomation(Model model) {
