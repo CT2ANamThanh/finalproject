@@ -22,11 +22,11 @@ public class CourseDetailsEntity {
     private LocalDate startDate;
 
     @ManyToOne
-    @JoinColumn(name = "id" ,insertable=false ,updatable=false)
+    @JoinColumn(name = "courseId")
     private CourseEntity course;
 
     @ManyToOne
-    @JoinColumn(name = "id",insertable=false ,updatable=false)
+    @JoinColumn(name = "moduleId")
     private ModuleEntity module;
 
     public CourseDetailsEntity() {

@@ -1,4 +1,3 @@
-
 package entity;
 
 import java.time.LocalDate;
@@ -15,14 +14,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "action")
 public class ActionEntity {
      @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
      private int id;
      @DateTimeFormat(pattern = "yyyy-MM-dd")
      private LocalDate date; 
      private String position;
      
     @ManyToOne
-    @JoinColumn(name = "id",insertable=false ,updatable=false)
+    @JoinColumn(name = "studentId")
     private StudentEntity student;
 
     public ActionEntity() {

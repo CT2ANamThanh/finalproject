@@ -17,23 +17,23 @@ public class StudentCourseEntity {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id",insertable=false ,updatable=false)
+    @JoinColumn(name = "batchId")
     private BatchEntity batch;
 
     @ManyToOne
-    @JoinColumn(name = "id",insertable=false ,updatable=false)
+    @JoinColumn(name = "feePlanId")
     private FeePlanEntity feeplan;
     
     @ManyToOne
-    @JoinColumn(name = "id",insertable=false ,updatable=false)
+    @JoinColumn(name = "studentId")
     private StudentEntity student;
     
     @ManyToOne
-    @JoinColumn(name = "id",insertable=false ,updatable=false)
+    @JoinColumn(name = "courseId")
     private CourseEntity course;
     
     @ManyToOne
-    @JoinColumn(name = "id",insertable=false ,updatable=false)
+    @JoinColumn(name = "discouttypeId")
     private DiscountTypeEntity discounttype;
 
     public StudentCourseEntity() {
@@ -55,7 +55,6 @@ public class StudentCourseEntity {
         this.batch = batch;
     }
 
-   
 
     public FeePlanEntity getFeeplan() {
         return feeplan;

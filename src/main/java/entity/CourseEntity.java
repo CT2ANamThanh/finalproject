@@ -29,8 +29,9 @@ public class CourseEntity {
     @JoinColumn(name = "centerId")
     private CenterEntity center;
 
-    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
-    List<FeePlanEntity> feePlanList;
+    @ManyToOne
+    @JoinColumn(name = "feePlanId")
+    private FeePlanEntity feeplan;
     
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     List<CourseDetailsEntity> courseDetailsList;
@@ -57,6 +58,8 @@ public class CourseEntity {
         this.name = name;
     }
 
+    
+
     public LocalDate getStartDate() {
         return startDate;
     }
@@ -73,33 +76,13 @@ public class CourseEntity {
         this.center = center;
     }
 
-    public List<FeePlanEntity> getFeePlanList() {
-        return feePlanList;
+    public FeePlanEntity getFeeplan() {
+        return feeplan;
     }
 
-    public void setFeePlanList(List<FeePlanEntity> feePlanList) {
-        this.feePlanList = feePlanList;
+    public void setFeeplan(FeePlanEntity feeplan) {
+        this.feeplan = feeplan;
     }
-
-    public List<CourseDetailsEntity> getCourseDetailsList() {
-        return courseDetailsList;
-    }
-
-    public void setCourseDetailsList(List<CourseDetailsEntity> courseDetailsList) {
-        this.courseDetailsList = courseDetailsList;
-    }
-
-    public List<StudentCourseEntity> getStudentCourseList() {
-        return studentCourseList;
-    }
-
-    public void setStudentCourseList(List<StudentCourseEntity> studentCourseList) {
-        this.studentCourseList = studentCourseList;
-    }
-    
-    
-
-   
 
     
 }

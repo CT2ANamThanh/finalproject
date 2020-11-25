@@ -26,7 +26,7 @@ public class BatchEntity {
     private String batchStatus;
 
     @ManyToOne
-    @JoinColumn(name = "id",insertable=false ,updatable=false)
+    @JoinColumn(name = "centerId")
     private CenterEntity center;
 
     @OneToMany(mappedBy = "batch", fetch = FetchType.LAZY)

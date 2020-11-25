@@ -1,3 +1,4 @@
+
 package entity;
 
 import javax.persistence.Entity;
@@ -7,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "follow")
@@ -19,7 +21,7 @@ public class FollowEntity {
     private String address;
 
     @ManyToOne
-    @JoinColumn(name = "enquiryid")
+    @JoinColumn(name = "enquiryId")
     private EnquiryEntity enquiry;
 
     public FollowEntity() {

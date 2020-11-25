@@ -1,3 +1,4 @@
+
 package entity;
 
 import java.time.LocalDate;
@@ -7,9 +8,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
+
 
 @Entity
 @Table(name = "student")
@@ -18,7 +22,7 @@ public class StudentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String studentCode;
+    
     private String firstName;
     private String lastName;
     private String address;
@@ -29,8 +33,7 @@ public class StudentEntity {
     private String sex;
     private String userName;
     private String password;
-    
-    
+
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
     List<UserEntity> userList;
 
@@ -39,6 +42,10 @@ public class StudentEntity {
 
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
     List<StudentCourseEntity> studentCourseList;
+    
+    @ManyToOne
+    @JoinColumn(name ="centerId")
+    private CenterEntity center;
 
     public StudentEntity() {
     }
@@ -50,15 +57,7 @@ public class StudentEntity {
     public void setId(int id) {
         this.id = id;
     }
-
-    public String getStudentCode() {
-        return studentCode;
-    }
-
-    public void setStudentCode(String studentCode) {
-        this.studentCode = studentCode;
-    }
-
+  
     public String getFirstName() {
         return firstName;
     }
@@ -154,5 +153,17 @@ public class StudentEntity {
     public void setStudentCourseList(List<StudentCourseEntity> studentCourseList) {
         this.studentCourseList = studentCourseList;
     }
+
+    public CenterEntity getCenter() {
+        return center;
+    }
+
+    public void setCenter(CenterEntity center) {
+        this.center = center;
+    }
+
+    
+
+    
 
 }

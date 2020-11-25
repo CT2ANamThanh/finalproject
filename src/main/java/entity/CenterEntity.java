@@ -6,6 +6,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,7 +26,8 @@ public class CenterEntity {
     @OneToMany(mappedBy = "center", fetch = FetchType.LAZY)
     List<EnquiryEntity> enquiryList;
 
-    
+    /*@OneToMany(mappedBy = "center", fetch = FetchType.LAZY)
+    List<StudentEntity> studentList;*/
 
     @OneToMany(mappedBy = "center", fetch = FetchType.LAZY)
     List<BatchEntity> batchList;
@@ -32,6 +35,8 @@ public class CenterEntity {
     @OneToMany(mappedBy = "center", fetch = FetchType.LAZY)
     List<CourseEntity> courseList;
 
+    
+    
     public CenterEntity() {
     }
 
@@ -83,7 +88,13 @@ public class CenterEntity {
         this.enquiryList = enquiryList;
     }
 
-   
+   /* public List<StudentEntity> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<StudentEntity> studentList) {
+        this.studentList = studentList;
+    }*/
 
     public List<BatchEntity> getBatchList() {
         return batchList;
@@ -101,5 +112,10 @@ public class CenterEntity {
         this.courseList = courseList;
     }
 
+    
+@Override
+public String toString(){
+    return name;
+}
     
 }

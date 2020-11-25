@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "user")
 public class UserEntity {
@@ -20,11 +21,11 @@ public class UserEntity {
     private String roleName;
     
      @ManyToOne
-    @JoinColumn(name = "id",insertable=false ,updatable=false)
+    @JoinColumn(name = "studentId")
     private StudentEntity student;
      
       @ManyToOne
-    @JoinColumn(name = "id",insertable=false ,updatable=false)
+    @JoinColumn(name = "employeeId")
     private EmployeeEntity employee;
 
     public UserEntity() {

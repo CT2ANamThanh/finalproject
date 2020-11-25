@@ -7,8 +7,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -27,12 +25,9 @@ public class FeePlanEntity {
 
     @OneToMany(mappedBy = "feeplan", fetch = FetchType.LAZY)
     List<StudentCourseEntity> studentCourseList;
-    
-    @ManyToOne
-    @JoinColumn(name = "courseId")
-    private CourseEntity course;
-    
-    
+
+    @OneToMany(mappedBy = "feeplan", fetch = FetchType.LAZY)
+    List<CourseEntity> courseList;
 
     public FeePlanEntity() {
     }
@@ -77,18 +72,14 @@ public class FeePlanEntity {
         this.studentCourseList = studentCourseList;
     }
 
-    public CourseEntity getCourse() {
-        return course;
+    public List<CourseEntity> getCourseList() {
+        return courseList;
     }
 
-    public void setCourse(CourseEntity course) {
-        this.course = course;
+    public void setCourseList(List<CourseEntity> courseList) {
+        this.courseList = courseList;
     }
-
     
-    
-
-   
     
 
 }

@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "equiry")
+@Table(name = "enquiry")
 public class EnquiryEntity {
 
     @Id
@@ -27,21 +27,11 @@ public class EnquiryEntity {
     private String address;
 
     @ManyToOne
-    @JoinColumn(name = "id",insertable=false ,updatable=false)
+    @JoinColumn(name = "centerId")
     private CenterEntity center;
     
     @OneToMany(mappedBy = "enquiry", fetch = FetchType.LAZY)
     List<FollowEntity> followList;
-
-    public List<FollowEntity> getFollowList() {
-        return followList;
-    }
-
-    public void setFollowList(List<FollowEntity> followList) {
-        this.followList = followList;
-    }
-
-   
 
     public EnquiryEntity() {
     }
@@ -93,5 +83,14 @@ public class EnquiryEntity {
     public void setCenter(CenterEntity center) {
         this.center = center;
     }
+
+    public List<FollowEntity> getFollowList() {
+        return followList;
+    }
+
+    public void setFollowList(List<FollowEntity> followList) {
+        this.followList = followList;
+    }
+    
 
 }
