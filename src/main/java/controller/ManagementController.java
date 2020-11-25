@@ -65,7 +65,7 @@ public class ManagementController {
    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String showEditStudent(@PathVariable(value = "id") int id, Model model) {
         
-        StudentEntity student = studentRepo.findById
+        StudentEntity student = studentRepo.findById(id);
         model.addAttribute("student", student);
 
              
