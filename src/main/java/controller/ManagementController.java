@@ -42,7 +42,7 @@ public class ManagementController {
     CourseRepository courseRepo;
     
     
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/management", method = RequestMethod.GET)
     public String showManagementPage(Model model) {
         
         return "management";
@@ -98,7 +98,7 @@ public class ManagementController {
     public String searchStudent(@RequestParam(name = "searchText") String searchText, Model model) {
 
         String searchText1 = "%" + searchText + "%";
-        List<StudentEntity> studentList = studentRepo.f
+        List<StudentEntity> studentList = studentRepo.findByFirstNameLikeOrLastNameLike(searchText, searchText1);
         model.addAttribute("studentList", studentList);
         model.addAttribute("searchText", searchText);
         return "student";
@@ -157,7 +157,7 @@ public class ManagementController {
     public String searchBatch(@RequestParam(name = "searchText") String searchText, Model model) {
 
         String searchText1 = "%" + searchText + "%";
-        List<BatchEntity> batchList = batchRepo.f
+        List<BatchEntity> batchList = batchRepo.findByBatchStatusLikeOrClassNameLike(searchText, searchText1);
         model.addAttribute("batchList", batchList);
         model.addAttribute("searchText", searchText);
         return "batch";
@@ -217,7 +217,7 @@ public class ManagementController {
     public String searchCourse(@RequestParam(name = "searchText") String searchText, Model model) {
 
         String searchText1 = "%" + searchText + "%";
-        List<CourseEntity> courseList = courseRepo
+        List<CourseEntity> courseList = courseRepo.findByNameContaining(searchText);
         model.addAttribute("courseList", courseList);
         model.addAttribute("searchText", searchText);
         return "course";
