@@ -77,27 +77,22 @@
                             <li class="nav-item has-treeview menu-open">
 
                                 <ul class="nav nav-treeview">
+                                    
                                     <li class="nav-item">
-                                        <a href="${pageContext.request.contextPath}/course" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <h3>Đăng Ký Học</h3>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                        <a href="courseHomePage" class="nav-link">
+                                            <i ></i>
                                             <h3>Chương Trình Học</h3>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="batch" class="nav-link ">
-                                            <i class="far fa-circle nav-icon"></i>
+                                        <a href="batchHomePage" class="nav-link ">
+                                            <i ></i>
                                             <h2>Lớp</h2>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="${pageContext.request.contextPath}/center" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                        <a href="${pageContext.request.contextPath}/centerHomePage" class="nav-link">
+                                            <i ></i>
                                             <h3>Trung Tâm</h3>
                                         </a>
                                     </li>

@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-        <title>Trung Tâm</title>
+        <title>Lớp</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -56,7 +56,7 @@
                 <a href="admin" class="brand-link">
                     <img src="${pageContext.request.contextPath}/ADMIN/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                          style="opacity: .8">
-                    <span class="brand-text font-weight-light">Trung Tâm Lập Trình Viên </span>
+                    <span href="" class="brand-text font-weight-light">Trung Tâm Lập Trình Viên </span>
                 </a>
 
                 <!-- Sidebar -->
@@ -81,20 +81,20 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="${pageContext.request.contextPath}/courseHomePage" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                           <h3>Chương Trình Học</h3>
+                                            <i ></i>
+                                            <h3>Chương Trình Học</h3>
                                         </a>
                                     </li>
-                                   
+                                    
                                     <li class="nav-item">
                                         <a href="${pageContext.request.contextPath}/batchHomePage" class="nav-link ">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i ></i>
                                             <h2>Lớp</h2>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="${pageContext.request.contextPath}/centerHomePage" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i ></i>
                                             <h3>Trung Tâm</h3>
                                         </a>
                                     </li>
@@ -125,7 +125,7 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1 class="m-0 text-dark">Trung Tâm </h1>
+                                <h1 class="m-0 text-dark">Lớp</h1>
                             </div>                           
                         </div>
                     </div>
@@ -139,21 +139,21 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Name</th>
-                                <th>Address</th>                             
-                                <th>Phone Number</th>
-                                <th>Email</th>
+                                <th>Center Name</th>
+                                <th>Start Date</th>                             
+                                <th>Class Name</th>
+                                <th>Batch Status</th>
                             </tr>
                         </thead>  
                         <tbody>
-                            <c:forEach var="center" items="${centerList}"> 
+                            <c:forEach var="batch" items="${batchList}"> 
                                 <tr>
-                                    <td>${center.id}</td>
-                                    <td>${center.name}</td>
-                                    <td>${center.address}</td>                                  
-                                    <td>${center.phone}</td>
-                                    <td>${center.email}</td>
-                                    
+                                    <td>${batch.id}</td>
+                                    <td>${batch.center.name}</td>
+                                    <td>${batch.startDate}</td>                                  
+                                    <td>${batch.className}</td>
+                                    <td>${batch.batchStatus}</td>
+                                   
                                 </tr>
                             </c:forEach>
                         </tbody>

@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-        <title>Đăng Ký Học</title>
+        <title>Trung Tâm</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -67,7 +67,7 @@
                             <img src="${pageContext.request.contextPath}/ADMIN/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
-                            <a href="infomation" class="d-block">Bảo Thành</a>
+                            <a href="#" class="d-block">Bảo Thành</a>
                         </div>
                     </div>
 
@@ -81,20 +81,20 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="${pageContext.request.contextPath}/courseHomePage" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <h3>Chương Trình Học</h3>
+                                            <i ></i>
+                                           <h3>Chương Trình Học</h3>
                                         </a>
                                     </li>
-                                    
+                                   
                                     <li class="nav-item">
                                         <a href="${pageContext.request.contextPath}/batchHomePage" class="nav-link ">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i ></i>
                                             <h2>Lớp</h2>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="${pageContext.request.contextPath}/centerHomePage" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i ></i>
                                             <h3>Trung Tâm</h3>
                                         </a>
                                     </li>
@@ -125,7 +125,7 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1 class="m-0 text-dark">Đăng Ký Học</h1>
+                                <h1 class="m-0 text-dark">Trung Tâm </h1>
                             </div>                           
                         </div>
                     </div>
@@ -139,20 +139,21 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Tên Môn Học</th>
-                                <th>Ngày Bắt Đầu</th>                             
-                                <th>Trung Tâm</th>
-                               
+                                <th>Name</th>
+                                <th>Address</th>                             
+                                <th>Phone Number</th>
+                                <th>Email</th>
                             </tr>
                         </thead>  
                         <tbody>
-                            <c:forEach var="course" items="${courseList}"> 
+                            <c:forEach var="center" items="${centerList}"> 
                                 <tr>
-                                    <td>${course.id}</td>
-                                    <td>${course.name}</td>
-                                    <td>${course.startDate}</td>                                  
-                                    <td>${course.center.name}</td>
-                                    <th><a href="${pageContext.request.contextPath}/addNewStudent/${product.id}">Đăng Ký Học</a></th>
+                                    <td>${center.id}</td>
+                                    <td>${center.name}</td>
+                                    <td>${center.address}</td>                                  
+                                    <td>${center.phone}</td>
+                                    <td>${center.email}</td>
+                                    
                                 </tr>
                             </c:forEach>
                         </tbody>
