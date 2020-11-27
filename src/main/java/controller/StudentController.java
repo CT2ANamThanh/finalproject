@@ -39,7 +39,7 @@ public class StudentController {
 
         return "login";
     }
-   @RequestMapping(value = "/login", method = RequestMethod.POST)
+   @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String showLogin2(Model model) {
 
         return "login";
