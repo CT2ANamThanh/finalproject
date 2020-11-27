@@ -30,6 +30,8 @@ public class StudentEntity {
     private String phone;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate startDate;
     private String sex;
     private String userName;
     private String password;
@@ -105,6 +107,16 @@ public class StudentEntity {
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+    
+    
 
     public String getSex() {
         return sex;

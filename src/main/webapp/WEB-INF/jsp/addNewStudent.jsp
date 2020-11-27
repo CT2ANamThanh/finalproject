@@ -165,6 +165,10 @@
                             <td>Birth Date(*):</td>
                             <td><mvc:input path="birthDate" type="Date" /></td>
                         </tr>
+                        <tr>
+                            <td>Start Date(*):</td>
+                            <td><mvc:input path="startDate" type="Date" /></td>
+                        </tr>
 
                         <tr>
                             <td>Gender(*):</td>

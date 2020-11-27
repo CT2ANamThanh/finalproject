@@ -159,6 +159,7 @@
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <th>Birth Date</th>
+                                    <th>Start Date</th>
                                     <th>Gender</th>
                                     <th>User Name</th>
                                 </tr>
@@ -175,6 +176,7 @@
                                         <td>${student.email}</td>
                                         <td>${student.phone}</td>
                                         <td>${student.birthDate}</td>
+                                        <td>${student.startDate}</td>
                                         <td>${student.sex}</td>
                                         <td>${student.userName}</td>
                                         <td><a href="edit/${student.id}" style="color: yellowgreen;" class="fa fa fa-pen"></a></td>
