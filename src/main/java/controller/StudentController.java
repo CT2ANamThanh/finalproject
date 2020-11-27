@@ -42,7 +42,7 @@ public class StudentController {
    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String showLogin2(Model model) {
 
-        return "user/homePage";
+        return "login";
     }
     
     @RequestMapping(value = "user/homePage", method = RequestMethod.GET)

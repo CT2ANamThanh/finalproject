@@ -25,16 +25,16 @@
          <security:intercept-url pattern="/user/*" access="hasAnyRole('ROLE_USER')"/>
          <security:intercept-url pattern="/management/*" access="hasRole('ROLE_MANAGEMENT')"/>
          <security:intercept-url pattern="/counselors/*" access="hasRole('ROLE_COUNSELORS')"/>
-    <security:form-login
-                             login-page="/login.jsp?login_error=1" 
-                             login-processing-url="/j_spring_security_check"
-                             username-parameter="username" 
-                             password-parameter="password"
-    />
-     <security:logout
-         invalidate-session="true"
-         logout-success-url="/login.jsp"
-     />
+            <security:form-login
+                                     login-page="/login?login_error=1" 
+                                     login-processing-url="/j_spring_security_check"
+                                     username-parameter="username" 
+                                     password-parameter="password"
+            />
+             <security:logout
+                 invalidate-session="true"
+                 logout-success-url="/login"
+             />
      </security:http>
      
       
