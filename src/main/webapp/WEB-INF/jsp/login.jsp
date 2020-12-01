@@ -53,15 +53,18 @@
                         <div class="d-flex justify-content-center links">
                             Don't have an account?<a href="register">Sign Up</a>
                         </div>
-
+                        
                         </form>
+                            <div class="d-flex justify-content-center links">
+                            <p style="color:red;">Error:
+                <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>     
-        <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
-            <p style="color:red;">Error:
-                <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/></p>
-        </c:if>  
+       
+           
+       
 </body>
 </html>

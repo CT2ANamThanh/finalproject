@@ -14,7 +14,7 @@
                 data-source-ref="dataSource"
                 users-by-username-query="select username,concat('{noop}',password) as password,enabled from users where username=?"
                 authorities-by-username-query="select username,roleName from users where username =?"
-                />
+            />
         </security:authentication-provider>
     </security:authentication-manager>
     <security:http pattern="/favicon.ico" security="none"/>
@@ -22,21 +22,23 @@
         <security:access-denied-handler error-page="/403_error.jsp"/>
         <security:csrf disabled="true"/>
         <security:intercept-url pattern="/login.jsp" access="isAnonymous()"/>
-         <security:intercept-url pattern="/user/*" access="hasAnyRole('ROLE_USER')"/>
-         <security:intercept-url pattern="/management/*" access="hasRole('ROLE_MANAGEMENT')"/>
-         <security:intercept-url pattern="/counselors/*" access="hasRole('ROLE_COUNSELORS')"/>
-            <security:form-login
-                                     login-page="/login.jsp?login_error=1" 
-                                     login-processing-url="/j_spring_security_check"
-                                     username-parameter="username" 
-                                     password-parameter="password"
-            />
-             <security:logout
-                 invalidate-session="true"
-                 logout-success-url="/login.jsp"
-             />
-     </security:http>
-     
+        <security:intercept-url pattern="/user/*" access="hasAnyRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/management/*" access="hasRole('ROLE_MANAGEMENT')"/>
+        <security:intercept-url pattern="/counselors/*" access="hasRole('ROLE_COUNSELORS')"/>
+        <security:form-login
+            login-page="/login.jsp?login_error=1" 
+            login-processing-url="/j_spring_security_check"
+             authentication-success-handler-ref="myAuthenticationSuccessHandler"
+            username-parameter="username"          
+            password-parameter="password"
+        />
+        <security:logout
+            invalidate-session="true"
+            logout-success-url="/login"
+        />
+    </security:http>
+    <bean id="myAuthenticationSuccessHandler"
+            class="redirectLogin.MySimpleUrlAuthenticationSuccessHandler" />
       
     <bean id = "dataSource" class ="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name ="driverClassName" value="com.mysql.jdbc.Driver" /> 

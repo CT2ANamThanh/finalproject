@@ -33,7 +33,7 @@ public class StudentController {
     StudentRepository studentRepo;
     @Autowired
     UserRepository userRepo;
-    
+    //login
      @RequestMapping(value = "/", method = RequestMethod.GET)
     public String showLogin(Model model) {
 
@@ -44,12 +44,31 @@ public class StudentController {
 
         return "login";
     }
+    //logout
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(HttpSession session) {
+        session.removeAttribute("user");
+        session.removeAttribute("management");
+        
+        return "redirect:/";
+    }
+    //homepage
     
     @RequestMapping(value = "user/homePage", method = RequestMethod.GET)
     public String showPage(Model model) {
 
         return "user/homePage";
     }
+     /*@RequestMapping(value = "managerment/managerment", method = RequestMethod.GET)
+    public String showManagement(Model model) {
+
+        return "managerment/managerment";
+    }
+     @RequestMapping(value = "counselor/counselor", method = RequestMethod.GET)
+    public String showCounselor(Model model) {
+
+        return "counselor/counselor";
+    }*/
 
     @RequestMapping(value = "user/courseHomePage", method = RequestMethod.GET)
     public String showProduct(Model model) {
