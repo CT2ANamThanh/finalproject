@@ -81,7 +81,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="user" class="nav-link">
+                                <a href="logout" class="nav-link">
                                     <i ></i>
                                     <h4>
                                        Đăng Xuất

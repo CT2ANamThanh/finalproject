@@ -48,23 +48,23 @@ public class MySimpleUrlAuthenticationSuccessHandler
  
     protected String determineTargetUrl(Authentication authentication) {
         boolean isUser = false;
-        boolean isAdmin = false;
+        boolean isManagement = false;
         Collection<? extends GrantedAuthority> authorities
          = authentication.getAuthorities();
         for (GrantedAuthority grantedAuthority : authorities) {
             if (grantedAuthority.getAuthority().equals("ROLE_USER")) {
                 isUser = true;
                 break;
-            } else if (grantedAuthority.getAuthority().equals("ROLE_MANAGERMENT")) {
-                isAdmin = true;
+            } else if (grantedAuthority.getAuthority().equals("ROLE_MANAGEMENT")) {
+                isManagement = true;
                 break;
             }
         }
  
         if (isUser) {
-            return "/user/homePage.jsp";
-        } else if (isAdmin) {
-            return "/management/management.jsp";
+            return "/user/homePage";
+        } else if (isManagement) {
+            return "/management/management";
         } else {
             throw new IllegalStateException();
         }
