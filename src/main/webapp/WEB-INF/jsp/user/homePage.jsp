@@ -44,7 +44,7 @@
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                            <img style="margin-top: 10px;"src="${pageContext.request.contextPath}/ADMIN/dist/img/credit/unnamed.jpg" class="img-circle elevation-2" alt="User Image">
+                           <img style="margin-top: 10px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
                             <a style="margin-top: 10px;" href="#" class="d-block">Bảo Thành</a>
@@ -60,21 +60,21 @@
 
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="${pageContext.request.contextPath}/course" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                        <a href="${pageContext.request.contextPath}/user/courseHomePage" class="nav-link">
+                                            <i ></i>
                                             <h3>Chương Trình Học</h3>
                                         </a>
                                     </li>
                                    
                                     <li class="nav-item">
-                                        <a href="${pageContext.request.contextPath}/batch"" class="nav-link ">
-                                            <i class="far fa-circle nav-icon"></i>
+                                        <a href="${pageContext.request.contextPath}/user/batchHomePage" class="nav-link ">
+                                            <i ></i>
                                             <h2>Lớp</h2>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="${pageContext.request.contextPath}/center" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                        <a href="${pageContext.request.contextPath}/user/centerHomePage" class="nav-link">
+                                            <i ></i>
                                             <h3>Trung Tâm</h3>
                                         </a>
                                     </li>
@@ -82,7 +82,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="user" class="nav-link">
-                                    <i class="nav-icon fas fa-users"></i>
+                                    <i ></i>
                                     <h4>
                                        Đăng Xuất
 

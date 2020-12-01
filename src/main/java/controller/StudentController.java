@@ -50,7 +50,7 @@ public class StudentController {
 
         return "user/homePage";
     }
-     @RequestMapping(value = "managerment/managerment", method = RequestMethod.GET)
+     /*@RequestMapping(value = "managerment/managerment", method = RequestMethod.GET)
     public String showManagement(Model model) {
 
         return "managerment/managerment";
@@ -59,7 +59,7 @@ public class StudentController {
     public String showCounselor(Model model) {
 
         return "counselor/counselor";
-    }
+    }*/
 
     @RequestMapping(value = "user/courseHomePage", method = RequestMethod.GET)
     public String showProduct(Model model) {
