@@ -56,10 +56,10 @@ public class ManagementController {
         return "management/student";
     }
     
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "management/delete/{id}", method = RequestMethod.GET)
     public String deleteStudent(@PathVariable(name = "id") int id) {
         studentRepo.deleteById(id);
-        return "redirect:/student";
+        return "redirect:/management/student";
     }
     
    @RequestMapping(value = "management/edit/{id}", method = RequestMethod.GET)
@@ -72,10 +72,10 @@ public class ManagementController {
         return "management/editStudent";
     }
 
-    @RequestMapping(value = "management/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String updateProduct(StudentEntity student) {
         StudentEntity newStudent = studentRepo.save(student);
-        return "redirect:management/student";
+        return "redirect:/management/student";
     }
     
     @RequestMapping(value = "management/addNewStudent", method = RequestMethod.GET)
@@ -91,10 +91,10 @@ public class ManagementController {
     public String saveNewStudent(StudentEntity student, Model model) {
         
         studentRepo.save(student);
-        return "redirect:management/student";
+        return "redirect:/management/student";
     }
     
-    @RequestMapping(value = "management/search", method = RequestMethod.GET)
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String searchStudent(@RequestParam(name = "searchText") String searchText, Model model) {
 
         String searchText1 = "%" + searchText + "%";
@@ -129,12 +129,12 @@ public class ManagementController {
     public String saveNewBatch(BatchEntity batch, Model model) {
         
         batchRepo.save(batch);
-        return "redirect:management/batch";
+        return "redirect:/management/batch";
     }
-    @RequestMapping(value = "/delete1/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "management/delete1/{id}", method = RequestMethod.GET)
     public String deleteBatch(@PathVariable(name = "id") int id) {
         batchRepo.deleteById(id);
-        return "redirect:/batch";
+        return "redirect:/management/batch";
     }
     
     @RequestMapping(value = "management/edit1/{id}", method = RequestMethod.GET)
@@ -148,12 +148,12 @@ public class ManagementController {
         return "management/editBatch";
     }
 
-    @RequestMapping(value = "management/update1", method = RequestMethod.POST)
+    @RequestMapping(value = "/update1", method = RequestMethod.POST)
     public String updateBatch(BatchEntity batch) {
         BatchEntity newBatch = batchRepo.save(batch);
-        return "redirect:management/batch";
+        return "redirect:/management/batch";
     }
-    @RequestMapping(value = "management/search1", method = RequestMethod.GET)
+    @RequestMapping(value = "/search1", method = RequestMethod.GET)
     public String searchBatch(@RequestParam(name = "searchText") String searchText, Model model) {
 
         String searchText1 = "%" + searchText + "%";
@@ -185,7 +185,7 @@ public class ManagementController {
     public String saveNewCourse(CourseEntity course, Model model) {
         
         courseRepo.save(course);
-        return "redirect:management/course";
+        return "redirect:/management/course";
     }
     
     @RequestMapping(value = "management/edit2/{id}", method = RequestMethod.GET)
@@ -201,7 +201,7 @@ public class ManagementController {
         return "management/editCourse";
     }
 
-    @RequestMapping(value = "management/update2", method = RequestMethod.POST)
+    @RequestMapping(value = "/update2", method = RequestMethod.POST)
     public String updateCourse(CourseEntity course) {
         CourseEntity newCourse = courseRepo.save(course);
         return "redirect:management/course";
@@ -210,10 +210,10 @@ public class ManagementController {
     @RequestMapping(value = "management/delete2/{id}", method = RequestMethod.GET)
     public String deleteCourse(@PathVariable(name = "id") int id) {
         courseRepo.deleteById(id);
-        return "redirect:management/course";
+        return "redirect:/management/course";
     }
     
-    @RequestMapping(value = "management/search2", method = RequestMethod.GET)
+    @RequestMapping(value = "/search2", method = RequestMethod.GET)
     public String searchCourse(@RequestParam(name = "searchText") String searchText, Model model) {
 
         String searchText1 = "%" + searchText + "%";
@@ -223,6 +223,12 @@ public class ManagementController {
         return "management/course";
     }
     
+    //REPORT
+    @RequestMapping(value = "management/report", method = RequestMethod.GET)
+    public String showManagerReport(Model model) {
+       
+        return "management/report";
+    }
     
     
     

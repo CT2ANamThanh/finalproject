@@ -1,10 +1,11 @@
 <%-- 
-    Document   : management
-    Created on : Nov 17, 2020, 10:04:42 AM
+    Document   : report
+    Created on : Dec 1, 2020, 9:26:36 AM
     Author     : Administrator
 --%>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="mvc" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -42,15 +43,16 @@
                         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                     </li>
 
+
                     
 
                 </ul>
 
                 <!-- SEARCH FORM -->
-                
+
 
                 <!-- Right navbar links -->
-                
+
             </nav>
             <!-- /.navbar -->
 
@@ -81,7 +83,7 @@
                             <!-- Add icons to the links using the .nav-icon class
                                  with font-awesome or any other icon font library -->
                             <li class="nav-item has-treeview menu-open">
-                                
+
                                 <ul class="nav nav-treeview">
                                     
                                     <li class="nav-item">
@@ -103,15 +105,15 @@
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="report" class="nav-link">
+                                        <a href="#" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Report</p>
                                         </a>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
-                            
+
 
                         </ul>
                     </nav>
@@ -121,80 +123,64 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
+            <<div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-                <div class="content-header">
-                    <div class="container-fluid">
-                        <div class="row mb-2">
-                            <div class="col-sm-6">
-                                <h3 class="m-0 text-dark">WELCOME TO ADMIN</h3><br>
-                                <img style="height: 300px;" src="images/logocaodang.jpg" alt=""/>
-                                
-                            </div><!-- /.col -->
-                            <div class="col-sm-6">
-                               
-                                <img style="margin-top: 35px; height: 300px; width: 250px;" src="images/unnamed.jpg" alt=""/>
-                                
-                            </div><!-- /.col -->
-                        </div><!-- /.row -->
-                    </div><!-- /.container-fluid -->
-                </div>
-                <!-- /.content-header -->
 
-                <!-- Main content -->
                 
-            <!-- /.content-wrapper -->
-
-            <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark">
-                <!-- Control sidebar content goes here -->
-            </aside>
-            <!-- /.control-sidebar -->
-
-            <!-- Main Footer -->
-            <footer class="main-footer">
-                <strong>Copyright &copy; 2020 <a>ATHENA Co</a>.</strong>
-                All rights reserved.
-                <div class="float-right d-none d-sm-inline-block">
-                    <b>Version</b> 3.0.5
-                </div>
-            </footer>
-        
+                
 
 
 
-        </div>
-        <!-- ./wrapper -->
+                <!-- Control Sidebar -->
+                <aside class="control-sidebar control-sidebar-dark">
+                    <!-- Control sidebar content goes here -->
+                </aside>
+                <!-- /.control-sidebar -->
 
-        <!-- REQUIRED SCRIPTS -->
-        <!-- jQuery -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery/jquery.min.js"></script>
-        <!-- Bootstrap -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- overlayScrollbars -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="${pageContext.request.contextPath}/ADMIN/dist/js/adminlte.js"></script>
+                <!-- Main Footer -->
+                <footer class="main-footer">
+                    <strong>Copyright &copy; 2020 <a>ATHENA Co</a>.</strong>
+                    All rights reserved.
+                    <div class="float-right d-none d-sm-inline-block">
+                        <b>Version</b> 3.0.5
+                    </div>
+                </footer>
 
-        <!-- OPTIONAL SCRIPTS -->
-        <script src="${pageContext.request.contextPath}/ADMIN/dist/js/demo.js"></script>
 
-        <!-- PAGE PLUGINS -->
-        <!-- jQuery Mapael -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/raphael/raphael.min.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mapael/jquery.mapael.min.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mapael/maps/usa_states.min.js"></script>
-        <!-- ChartJS -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/chart.js/Chart.min.js"></script>
 
-        <!-- PAGE SCRIPTS -->
-        <script src="${pageContext.request.contextPath}/ADMIN/dist/js/pages/dashboard2.js"></script>
-        <!-- DataTables -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+            </div>
+            <!-- ./wrapper -->
+
+            <!-- REQUIRED SCRIPTS -->
+            <!-- jQuery -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery/jquery.min.js"></script>
+            <!-- Bootstrap -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- overlayScrollbars -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+            <!-- AdminLTE App -->
+            <script src="${pageContext.request.contextPath}/ADMIN/dist/js/adminlte.js"></script>
+
+            <!-- OPTIONAL SCRIPTS -->
+            <script src="${pageContext.request.contextPath}/ADMIN/dist/js/demo.js"></script>
+
+            <!-- PAGE PLUGINS -->
+            <!-- jQuery Mapael -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/raphael/raphael.min.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+            <!-- ChartJS -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/chart.js/Chart.min.js"></script>
+
+            <!-- PAGE SCRIPTS -->
+            <script src="${pageContext.request.contextPath}/ADMIN/dist/js/pages/dashboard2.js"></script>
+            <!-- DataTables -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables/jquery.dataTables.min.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
     </body>
 </html>
