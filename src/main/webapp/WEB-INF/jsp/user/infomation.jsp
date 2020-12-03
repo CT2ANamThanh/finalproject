@@ -160,9 +160,10 @@
                                             </ul>                
                                         </div>                            
                                     </div>     
-                                </div>      
+                                </div>  
+                             
                                 <div class="col-md-9"> 
-                                     
+                                        
                                     <table class="table table-hover">
 
                                        
@@ -215,8 +216,9 @@
                                        
                                        
                                     </table>
-                             
+                            
                                 </div>  
+                             
                             </div>
                         </div> 
                     </div>

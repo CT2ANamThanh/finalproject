@@ -47,7 +47,8 @@
                            <img style="margin-top: 10px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
-                            <a style="margin-top: 10px;" href="#" class="d-block">Bảo Thành</a>
+                            <a style="margin-top: 10px;" href="${pageContext.request.contextPath}/user/infomation" class="d-block">Bảo Thành</a>
+                             
                         </div>
                     </div>
                     >

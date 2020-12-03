@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -59,16 +60,7 @@ public class StudentController {
 
         return "user/homePage";
     }
-     /*@RequestMapping(value = "managerment/managerment", method = RequestMethod.GET)
-    public String showManagement(Model model) {
-
-        return "managerment/managerment";
-    }
-     @RequestMapping(value = "counselor/counselor", method = RequestMethod.GET)
-    public String showCounselor(Model model) {
-
-        return "counselor/counselor";
-    }*/
+    
 
     @RequestMapping(value = "user/courseHomePage", method = RequestMethod.GET)
     public String showProduct(Model model) {
@@ -96,15 +88,15 @@ public class StudentController {
 
         return "user/batchHomePage";
     }
-    @RequestMapping(value = "user/infomation", method = RequestMethod.GET)
-    public String showInfomation(Model model) {
+    
+    @RequestMapping(value = "/user/infomation/{id}", method = RequestMethod.GET)
+    public String showDetailProduct(@PathVariable(value = "id") int id, Model model) {
         List<StudentEntity> studentList = (List<StudentEntity>) studentRepo.findAll();
-       
-
+        StudentEntity student = studentRepo.findById(id);
+        model.addAttribute("student", student);
         model.addAttribute("studentList", studentList);
-
+       
         return "user/infomation";
     }
-    
    
 }
