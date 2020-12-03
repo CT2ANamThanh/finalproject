@@ -115,7 +115,7 @@
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="report" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Report</p>
                                         </a>
@@ -153,13 +153,13 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>First Name</th>
-                                    <th>Last Name</th>
-                                    
+                                    <th>Last Name</th>                                    
                                     <th>Address</th>
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <th>Birth Date</th>
                                     <th>Start Date</th>
+                                    <th>End Date</th>
                                     <th>Gender</th>
                                     <th>User Name</th>
                                 </tr>
@@ -170,13 +170,13 @@
                                     <tr>
                                         <td>${student.id}</td>
                                         <td>${student.firstName}</td>
-                                        <td>${student.lastName}</td>
-                                        
+                                        <td>${student.lastName}</td>                                         
                                         <td>${student.address}</td>
                                         <td>${student.email}</td>
                                         <td>${student.phone}</td>
                                         <td>${student.birthDate}</td>
                                         <td>${student.startDate}</td>
+                                        <td>${student.endDate}</td>
                                         <td>${student.sex}</td>
                                         <td>${student.userName}</td>
                                         <td><a href="edit/${student.id}" style="color: yellowgreen;" class="fa fa fa-pen"></a></td>

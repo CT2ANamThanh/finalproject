@@ -44,7 +44,7 @@
                     </li>
 
 
-                    
+
 
                 </ul>
 
@@ -85,7 +85,7 @@
                             <li class="nav-item has-treeview menu-open">
 
                                 <ul class="nav nav-treeview">
-                                    
+
                                     <li class="nav-item">
                                         <a href="student" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
@@ -126,8 +126,71 @@
             <<div class="content-wrapper">
                 <!-- Content Header (Page header) -->
 
-                
-                
+                <form class="form-inline ml-3" action="${pageContext.request.contextPath}/search3" method="get">
+                    <div class="input-group input-group-sm">
+                        <table>
+                            <tr>
+                                <th>Start Date:</th>
+                                <td><input type="Date" name="startDate" id="startDate" ></td>
+
+                                <th>End Date:</th>
+                                <td><input type="Date" name="endDate" id="endDate" ></td>
+                            </tr>
+                        </table>
+                        <div class="input-group-append">
+                            <button class="btn btn-navbar" type="submit" value="Search">
+                                <i class="fas fa-search">Search</i>
+                            </button>
+                        </div>
+                    </div>                   
+                </form>
+
+
+                <div class="card">
+                    <c:if test="${studentList.size()>0}">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>                                    
+                                    <th>Address</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Birth Date</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Gender</th>
+                                    <th>User Name</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <c:forEach var="student" items="${studentList}">
+                                    <tr>
+                                        <td>${student.id}</td>
+                                        <td>${student.firstName}</td>
+                                        <td>${student.lastName}</td>                                         
+                                        <td>${student.address}</td>
+                                        <td>${student.email}</td>
+                                        <td>${student.phone}</td>
+                                        <td>${student.birthDate}</td>
+                                        <td>${student.startDate}</td>
+                                        <td>${student.endDate}</td>
+                                        <td>${student.sex}</td>
+                                        <td>${student.userName}</td>
+
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </c:if>
+
+                    <c:if test="${studentList.size()==0}">
+                        <c:out value="There is no result.Try again" />
+                    </c:if>
+                </div>
+
 
 
 

@@ -1,7 +1,10 @@
 
 package entity;
 
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -32,6 +35,8 @@ public class StudentEntity {
     private LocalDate birthDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate endDate;
     private String sex;
     private String userName;
     private String password;
@@ -48,6 +53,8 @@ public class StudentEntity {
     @ManyToOne
     @JoinColumn(name ="centerId")
     private CenterEntity center;
+    
+    
 
     public StudentEntity() {
     }
@@ -115,6 +122,14 @@ public class StudentEntity {
     public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
     
     
 
@@ -173,8 +188,6 @@ public class StudentEntity {
     public void setCenter(CenterEntity center) {
         this.center = center;
     }
-
-    
 
     
 

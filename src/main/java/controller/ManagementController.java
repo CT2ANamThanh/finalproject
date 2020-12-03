@@ -1,4 +1,3 @@
-
 package controller;
 
 import entity.BatchEntity;
@@ -6,10 +5,14 @@ import entity.CenterEntity;
 import entity.CourseEntity;
 import entity.FeePlanEntity;
 import entity.StudentEntity;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,29 +28,28 @@ import repository.StudentRepository;
 @Controller
 @RequestMapping(value = "/")
 public class ManagementController {
-    
+
     @Autowired
     StudentRepository studentRepo;
-    
+
     @Autowired
     FeePlanRepository feePlanRepo;
-    
+
     @Autowired
     BatchRepository batchRepo;
-    
+
     @Autowired
     CenterRepository centerRepo;
-    
+
     @Autowired
     CourseRepository courseRepo;
-    
-    
+
     @RequestMapping(value = "management/management", method = RequestMethod.GET)
     public String showManagementPage(Model model) {
-        
+
         return "management/management";
     }
-    
+
     //STUDENT MANAGE
     @RequestMapping(value = "management/student", method = RequestMethod.GET)
     public String showManagerStudent(Model model) {
@@ -55,20 +57,19 @@ public class ManagementController {
         model.addAttribute("studentList", studentList);
         return "management/student";
     }
-    
+
     @RequestMapping(value = "management/delete/{id}", method = RequestMethod.GET)
     public String deleteStudent(@PathVariable(name = "id") int id) {
         studentRepo.deleteById(id);
         return "redirect:/management/student";
     }
-    
-   @RequestMapping(value = "management/edit/{id}", method = RequestMethod.GET)
+
+    @RequestMapping(value = "management/edit/{id}", method = RequestMethod.GET)
     public String showEditStudent(@PathVariable(value = "id") int id, Model model) {
-        
+
         StudentEntity student = studentRepo.findById(id);
         model.addAttribute("student", student);
 
-             
         return "management/editStudent";
     }
 
@@ -77,23 +78,22 @@ public class ManagementController {
         StudentEntity newStudent = studentRepo.save(student);
         return "redirect:/management/student";
     }
-    
+
     @RequestMapping(value = "management/addNewStudent", method = RequestMethod.GET)
     public String showAddNewStudent(Model model) {
-              
+
         model.addAttribute("student", new StudentEntity());
-        
-          
+
         return "management/addNewStudent";
     }
 
     @RequestMapping(value = "management/addNewStudent", method = RequestMethod.POST)
     public String saveNewStudent(StudentEntity student, Model model) {
-        
+
         studentRepo.save(student);
         return "redirect:/management/student";
     }
-    
+
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String searchStudent(@RequestParam(name = "searchText") String searchText, Model model) {
 
@@ -103,44 +103,45 @@ public class ManagementController {
         model.addAttribute("searchText", searchText);
         return "management/student";
     }
-    
-  //BATCH MANAGE
+
+    //BATCH MANAGE
     @RequestMapping(value = "management/batch", method = RequestMethod.GET)
     public String showManagerBatch(Model model) {
         List<BatchEntity> batchList = (List<BatchEntity>) batchRepo.findAll();
         model.addAttribute("batchList", batchList);
         return "management/batch";
     }
-    
+
     @RequestMapping(value = "management/addNewBatch", method = RequestMethod.GET)
     public String showAddNewBatch(Model model) {
         List<CenterEntity> centerList = (List<CenterEntity>) centerRepo.findAll();
         //model.addAttribute("batch", new BatchEntity());
         model.addAttribute("centerList", centerList);
         CenterEntity center = new CenterEntity();
-          BatchEntity batch = new BatchEntity();
-          batch.setCenter(center);
-          model.addAttribute("batch", batch);
-          setCenterDropDownList(model);
+        BatchEntity batch = new BatchEntity();
+        batch.setCenter(center);
+        model.addAttribute("batch", batch);
+        setCenterDropDownList(model);
         return "management/addNewBatch";
     }
 
     @RequestMapping(value = "management/addNewBatch", method = RequestMethod.POST)
     public String saveNewBatch(BatchEntity batch, Model model) {
-        
+
         batchRepo.save(batch);
         return "redirect:/management/batch";
     }
+
     @RequestMapping(value = "management/delete1/{id}", method = RequestMethod.GET)
     public String deleteBatch(@PathVariable(name = "id") int id) {
         batchRepo.deleteById(id);
         return "redirect:/management/batch";
     }
-    
+
     @RequestMapping(value = "management/edit1/{id}", method = RequestMethod.GET)
     public String showEditBatch(@PathVariable(value = "id") int id, Model model) {
         List<CenterEntity> centerList = (List<CenterEntity>) centerRepo.findAll();
-        
+
         BatchEntity batch = batchRepo.findById(id);
         model.addAttribute("batch", batch);
         model.addAttribute("centerList", centerList);
@@ -153,6 +154,7 @@ public class ManagementController {
         BatchEntity newBatch = batchRepo.save(batch);
         return "redirect:/management/batch";
     }
+
     @RequestMapping(value = "/search1", method = RequestMethod.GET)
     public String searchBatch(@RequestParam(name = "searchText") String searchText, Model model) {
 
@@ -162,7 +164,7 @@ public class ManagementController {
         model.addAttribute("searchText", searchText);
         return "management/batch";
     }
-    
+
     //COURSE MANAGE
     @RequestMapping(value = "management/course", method = RequestMethod.GET)
     public String showManagerCourse(Model model) {
@@ -170,12 +172,13 @@ public class ManagementController {
         model.addAttribute("courseList", courseList);
         return "management/course";
     }
+
     @RequestMapping(value = "management/addNewCourse", method = RequestMethod.GET)
     public String showAddNewCourse(Model model) {
         List<CenterEntity> centerList = (List<CenterEntity>) centerRepo.findAll();
-        List<FeePlanEntity> feeplanList = (List<FeePlanEntity>) feePlanRepo.findAll();      
+        List<FeePlanEntity> feeplanList = (List<FeePlanEntity>) feePlanRepo.findAll();
         model.addAttribute("course", new CourseEntity());
-        
+
         setCenterDropDownList(model);
         setFeePlanDropDownList(model);
         return "management/addNewCourse";
@@ -183,11 +186,11 @@ public class ManagementController {
 
     @RequestMapping(value = "management/addNewCourse", method = RequestMethod.POST)
     public String saveNewCourse(CourseEntity course, Model model) {
-        
+
         courseRepo.save(course);
         return "redirect:/management/course";
     }
-    
+
     @RequestMapping(value = "management/edit2/{id}", method = RequestMethod.GET)
     public String showEditCourse(@PathVariable(value = "id") int id, Model model) {
         List<CenterEntity> centerList = (List<CenterEntity>) centerRepo.findAll();
@@ -206,13 +209,13 @@ public class ManagementController {
         CourseEntity newCourse = courseRepo.save(course);
         return "redirect:management/course";
     }
-    
+
     @RequestMapping(value = "management/delete2/{id}", method = RequestMethod.GET)
     public String deleteCourse(@PathVariable(name = "id") int id) {
         courseRepo.deleteById(id);
         return "redirect:/management/course";
     }
-    
+
     @RequestMapping(value = "/search2", method = RequestMethod.GET)
     public String searchCourse(@RequestParam(name = "searchText") String searchText, Model model) {
 
@@ -222,16 +225,28 @@ public class ManagementController {
         model.addAttribute("searchText", searchText);
         return "management/course";
     }
-    
+
     //REPORT
     @RequestMapping(value = "management/report", method = RequestMethod.GET)
     public String showManagerReport(Model model) {
-       
+
         return "management/report";
     }
-    
-    
-    
+
+    @RequestMapping(value = "/search3", method = RequestMethod.GET)
+    public String searchReport(@RequestParam(name = "startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
+            @RequestParam(name = "endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate, Model model) {
+
+        LocalDate startLocalDate = LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(startDate));
+        LocalDate endLocalDate = LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(endDate));
+        List<StudentEntity> studentList = studentRepo.findByStartDateBetween(startLocalDate, endLocalDate);
+        model.addAttribute("studentList", studentList);
+        model.addAttribute("startDate", startDate);
+        model.addAttribute("endDate", endDate);
+
+        return "management/report";
+    }
+
     private void setCenterDropDownList(Model model) {
         List<CenterEntity> centerList = (List<CenterEntity>) centerRepo.findAll();
         if (!centerList.isEmpty()) {
@@ -242,14 +257,16 @@ public class ManagementController {
             model.addAttribute("centerList", centerMap);
         }
     }
-     private void setFeePlanDropDownList(Model model) {
+
+    private void setFeePlanDropDownList(Model model) {
         List<FeePlanEntity> feeplanList = (List<FeePlanEntity>) feePlanRepo.findAll();
         if (!feeplanList.isEmpty()) {
             Map<Integer, String> feeplanMap = new LinkedHashMap<>();
             for (FeePlanEntity feePlanEntity : feeplanList) {
                 feeplanMap.put(feePlanEntity.getId(), feePlanEntity.getFeePlanType());
             }
-            model.addAttribute("feeplanList",feeplanMap);
+            model.addAttribute("feeplanList", feeplanMap);
         }
     }
+
 }

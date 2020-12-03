@@ -145,6 +145,7 @@
                             <td>Last Name(*):</td>
                             <td><mvc:input path="lastName" required="true"/></td>
                         </tr>
+                        
                         <tr>
                             <td>Address(*):</td>
                             <td><mvc:input path="address" required="true"/></td>
@@ -165,6 +166,10 @@
                         <tr>
                             <td>Start Date(*):</td>
                             <td><mvc:input path="startDate" type="Date" /></td>
+                        </tr>
+                        <tr>
+                            <td>End Date(*):</td>
+                            <td><mvc:input path="endDate" type="Date" /></td>
                         </tr>
 
                         <tr>
