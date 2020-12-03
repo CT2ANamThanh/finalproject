@@ -103,7 +103,7 @@
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="report" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Report</p>
                                         </a>
@@ -129,10 +129,12 @@
                             <div class="col-sm-6">
                                 <h3 class="m-0 text-dark">WELCOME TO ADMIN</h3><br>
                                 <img style="height: 300px;" src="images/logocaodang.jpg" alt=""/>
+                                
                             </div><!-- /.col -->
                             <div class="col-sm-6">
                                
                                 <img style="margin-top: 35px; height: 300px; width: 250px;" src="images/unnamed.jpg" alt=""/>
+                                
                             </div><!-- /.col -->
                         </div><!-- /.row -->
                     </div><!-- /.container-fluid -->

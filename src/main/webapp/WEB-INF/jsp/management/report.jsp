@@ -1,6 +1,6 @@
 <%-- 
-    Document   : editStudent
-    Created on : Nov 23, 2020, 9:38:01 AM
+    Document   : report
+    Created on : Dec 1, 2020, 9:26:36 AM
     Author     : Administrator
 --%>
 
@@ -44,9 +44,7 @@
                     </li>
 
 
-                    <li class="nav-item">
-                        <a  class="nav-link" href="addNewStudent">Add New Student</a>
-                    </li>
+
 
                 </ul>
 
@@ -87,7 +85,7 @@
                             <li class="nav-item has-treeview menu-open">
 
                                 <ul class="nav nav-treeview">
-                                    
+
                                     <li class="nav-item">
                                         <a href="student" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
@@ -127,69 +125,72 @@
             <!-- Content Wrapper. Contains page content -->
             <<div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-                
 
-                <mvc:form modelAttribute="student" action="${pageContext.request.contextPath}/update" method="post">
-                    <table>
+                <form class="form-inline ml-3" action="${pageContext.request.contextPath}/search3" method="get">
+                    <div class="input-group input-group-sm">
+                        <table>
+                            <tr>
+                                <th>Start Date:</th>
+                                <td><input type="Date" name="startDate" id="startDate" ></td>
 
-                        <tr>
-                            <td>ID:</td>
-                            <td><mvc:input path="id" readonly="true" /></td>
-                        </tr>
+                                <th>End Date:</th>
+                                <td><input type="Date" name="endDate" id="endDate" ></td>
+                            </tr>
+                        </table>
+                        <div class="input-group-append">
+                            <button class="btn btn-navbar" type="submit" value="Search">
+                                <i class="fas fa-search">Search</i>
+                            </button>
+                        </div>
+                    </div>                   
+                </form>
 
-                        <tr>
-                            <td>First Name(*):</td>
-                            <td><mvc:input path="firstName" required="true"/></td>
-                        </tr>
-                        <tr>
-                            <td>Last Name(*):</td>
-                            <td><mvc:input path="lastName" required="true"/></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Address(*):</td>
-                            <td><mvc:input path="address" required="true"/></td>
-                        </tr>
-                        <tr>
-                            <td>Email(*):</td>
-                            <td><mvc:input path="email" required="true"/></td>
-                        </tr>
-                        <tr>
-                            <td>Phone(*):</td>
-                            <td><mvc:input path="phone" required="true"/></td>
-                        </tr>
 
-                        <tr>
-                            <td>Birth Date(*):</td>
-                            <td><mvc:input path="birthDate" type="Date" /></td>
-                        </tr>
-                        <tr>
-                            <td>Start Date(*):</td>
-                            <td><mvc:input path="startDate" type="Date" /></td>
-                        </tr>
-                        <tr>
-                            <td>End Date(*):</td>
-                            <td><mvc:input path="endDate" type="Date" /></td>
-                        </tr>
+                <div class="card">
+                    <c:if test="${studentList.size()>0}">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>                                    
+                                    <th>Address</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Birth Date</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Gender</th>
+                                    <th>User Name</th>
+                                </tr>
+                            </thead>
 
-                        <tr>
-                            <td>Gender(*):</td>
-                            <td><mvc:input path="sex" required="true"/></td>
-                        </tr>
-                        <tr>
-                            <td>User Name(*):</td>
-                            <td><mvc:input path="userName" required="true"/></td>
-                        </tr>
-                        <tr>
-                            <td>Password(*):</td>
-                            <td><mvc:input path="password" required="true"/></td>
-                        </tr>
+                            <tbody>
+                                <c:forEach var="student" items="${studentList}">
+                                    <tr>
+                                        <td>${student.id}</td>
+                                        <td>${student.firstName}</td>
+                                        <td>${student.lastName}</td>                                         
+                                        <td>${student.address}</td>
+                                        <td>${student.email}</td>
+                                        <td>${student.phone}</td>
+                                        <td>${student.birthDate}</td>
+                                        <td>${student.startDate}</td>
+                                        <td>${student.endDate}</td>
+                                        <td>${student.sex}</td>
+                                        <td>${student.userName}</td>
 
-                        <tr>
-                            <td colspan="2"><input type="submit" value="save"></td>
-                        </tr>
-                    </table>
-                </mvc:form>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </c:if>
+
+                    <c:if test="${studentList.size()==0}">
+                        <c:out value="There is no result.Try again" />
+                    </c:if>
+                </div>
+
 
 
 
