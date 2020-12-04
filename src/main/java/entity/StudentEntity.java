@@ -38,8 +38,7 @@ public class StudentEntity {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
     private String sex;
-    private String userName;
-    private String password;
+   
 
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
     List<UserEntity> userList;
@@ -141,21 +140,7 @@ public class StudentEntity {
         this.sex = sex;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    
 
     public List<UserEntity> getUserList() {
         return userList;

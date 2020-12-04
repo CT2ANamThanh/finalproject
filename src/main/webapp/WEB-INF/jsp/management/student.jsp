@@ -161,7 +161,7 @@
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th>Gender</th>
-                                    <th>User Name</th>
+                                    
                                 </tr>
                             </thead>
                             
@@ -178,7 +178,7 @@
                                         <td>${student.startDate}</td>
                                         <td>${student.endDate}</td>
                                         <td>${student.sex}</td>
-                                        <td>${student.userName}</td>
+                                        
                                         <td><a href="edit/${student.id}" style="color: yellowgreen;" class="fa fa fa-pen"></a></td>
                                         <td><a href="delete/${student.id}" style="color: red;" class="fa fa-trash"></a></td>
                                     </tr>
