@@ -18,8 +18,7 @@ public class EmployeeEntity {
      private String name;
      private String position;
      
-     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
-    List<UserEntity> userList;
+    
 
     public EmployeeEntity() {
     }
@@ -48,13 +47,7 @@ public class EmployeeEntity {
         this.position = position;
     }
 
-    public List<UserEntity> getUserList() {
-        return userList;
-    }
-
-    public void setUserList(List<UserEntity> userList) {
-        this.userList = userList;
-    }
+    
      
      
      
