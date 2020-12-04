@@ -46,10 +46,12 @@
                         <div class="image">
                            <img style="margin-top: 10px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
+                           <c:forEach var="student" items="${student}"> 
                         <div class="info">
-                            <a style="margin-top: 10px;" href="${pageContext.request.contextPath}/user/infomation" class="d-block">Bảo Thành</a>
+                            <a style="margin-top: 10px;" href="${pageContext.request.contextPath}/user/infomation" class="d-block">${student.lastName}</a>
                              
                         </div>
+                           </c:forEach>
                     </div>
                     >
                     <!-- Sidebar Menu -->
@@ -82,7 +84,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="logout" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/logout" class="nav-link">
                                     <i ></i>
                                     <h4>
                                        Đăng Xuất

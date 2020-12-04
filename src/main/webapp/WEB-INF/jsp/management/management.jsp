@@ -108,6 +108,15 @@
                                             <p>Report</p>
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/logout" class="nav-link">
+                                    <i ></i>
+                                    <p>
+                                       Đăng Xuất
+
+                                    </p>
+                                </a>
+                            </li>
                                     
                                 </ul>
                             </li>
