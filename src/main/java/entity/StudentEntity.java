@@ -37,8 +37,7 @@ public class StudentEntity {
     private String sex;
    
 
-    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
-    List<UserEntity> userList;
+    
 
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
     List<ActionEntity> actionList;
@@ -137,17 +136,6 @@ public class StudentEntity {
     public void setSex(String sex) {
         this.sex = sex;
     }
-
-    
-
-    public List<UserEntity> getUserList() {
-        return userList;
-    }
-
-    public void setUserList(List<UserEntity> userList) {
-        this.userList = userList;
-    }
-
     public List<ActionEntity> getActionList() {
         return actionList;
     }
