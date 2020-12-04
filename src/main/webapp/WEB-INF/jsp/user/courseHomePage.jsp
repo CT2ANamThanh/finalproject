@@ -100,11 +100,11 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a href="user" class="nav-link">
-                                    <i class="nav-icon fas fa-users"></i>
+                          <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/logout" class="nav-link">
+                                    <i ></i>
                                     <h4>
-                                        Đăng Xuất
+                                       Đăng Xuất
 
                                     </h4>
                                 </a>

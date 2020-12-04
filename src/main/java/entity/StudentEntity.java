@@ -51,7 +51,7 @@ public class StudentEntity {
     
     @ManyToOne
     @JoinColumn(name = "userId")
-    private UserEntity users;
+    private UserEntity user;
 
     public StudentEntity() {
     }
@@ -160,12 +160,12 @@ public class StudentEntity {
         this.center = center;
     }
 
-    public UserEntity getUsers() {
-        return users;
+    public UserEntity getUser() {
+        return user;
     }
 
-    public void setUsers(UserEntity users) {
-        this.users = users;
+    public void setUser(UserEntity users) {
+        this.user = user;
     }
 
     

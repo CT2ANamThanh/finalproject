@@ -46,7 +46,7 @@
                         <div class="image">
                            <img style="margin-top: 10px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
-                           <c:forEach var="student" items="${student}"> 
+                           <c:forEach var="student" items="${student.id}"> 
                         <div class="info">
                             <a style="margin-top: 10px;" href="${pageContext.request.contextPath}/user/infomation" class="d-block">${student.lastName}</a>
                              
