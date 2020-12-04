@@ -45,9 +45,9 @@ public class StudentEntity {
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
     List<StudentCourseEntity> studentCourseList;
     
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name ="centerId")
-    private CenterEntity center;
+    private CenterEntity center;*/
     
     @ManyToOne
     @JoinColumn(name = "userId")
@@ -152,22 +152,22 @@ public class StudentEntity {
         this.studentCourseList = studentCourseList;
     }
 
-    public CenterEntity getCenter() {
+    /*public CenterEntity getCenter() {
         return center;
     }
 
     public void setCenter(CenterEntity center) {
         this.center = center;
-    }
+    }*/
 
     public UserEntity getUser() {
         return user;
     }
 
-    public void setUser(UserEntity users) {
+    public void setUser(UserEntity user) {
         this.user = user;
     }
 
-    
+
 
 }
