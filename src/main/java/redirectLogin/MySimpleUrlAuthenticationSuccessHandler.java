@@ -49,6 +49,7 @@ public class MySimpleUrlAuthenticationSuccessHandler
     protected String determineTargetUrl(Authentication authentication) {
         boolean isUser = false;
         boolean isManagement = false;
+        boolean isCounselors = false;
         Collection<? extends GrantedAuthority> authorities
          = authentication.getAuthorities();
         for (GrantedAuthority grantedAuthority : authorities) {
@@ -58,17 +59,22 @@ public class MySimpleUrlAuthenticationSuccessHandler
             } else if (grantedAuthority.getAuthority().equals("ROLE_MANAGEMENT")) {
                 isManagement = true;
                 break;
-            }
+            } else if (grantedAuthority.getAuthority().equals("ROLE_COUNSELORS")) {
+                isCounselors = true;
+                break;
         }
- 
+        }
         if (isUser) {
             return "/user/homePage";
         } else if (isManagement) {
             return "/management/management";
-        } else {
+        } else if (isCounselors) {
+            return "/counselors/counselors";
+        }else {
             throw new IllegalStateException();
         }
     }
+    
  
     protected void clearAuthenticationAttributes(HttpServletRequest request) {
         HttpSession session = request.getSession(false);

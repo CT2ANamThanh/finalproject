@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CounselorsController {
     
     
-    @RequestMapping(value = "/counselors", method = RequestMethod.GET)
+    @RequestMapping(value = "counselors/counselors", method = RequestMethod.GET)
     public String showPage(Model model) {
         
-        return "counselors";
+        return "counselors/counselors";
     }
    
 }
