@@ -20,9 +20,7 @@ public class UserEntity {
     private String password;
     private String roleName;
     
-     @ManyToOne
-    @JoinColumn(name = "studentId")
-    private StudentEntity student;
+     
      
       @ManyToOne
     @JoinColumn(name = "employeeId")
@@ -63,13 +61,7 @@ public class UserEntity {
         this.roleName = roleName;
     }
 
-    public StudentEntity getStudent() {
-        return student;
-    }
-
-    public void setStudent(StudentEntity student) {
-        this.student = student;
-    }
+    
 
     public EmployeeEntity getEmployee() {
         return employee;
