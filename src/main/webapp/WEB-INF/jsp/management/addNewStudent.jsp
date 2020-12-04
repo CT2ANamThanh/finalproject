@@ -179,7 +179,14 @@
                             <td>Gender(*):</td>
                             <td><mvc:input path="sex" required="true"/></td>
                         </tr>
-                        
+                        <tr>
+                            <td>User Name(*):</td>
+                            <td><mvc:input path="user.userName" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Pass Word(*):</td>
+                            <td><mvc:input path="user.password" required="true"/></td>
+                        </tr>
                         
                         <tr>
                             <td colspan="2"><input type="submit" value="save"></td>

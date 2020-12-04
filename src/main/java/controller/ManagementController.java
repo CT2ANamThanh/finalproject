@@ -5,6 +5,7 @@ import entity.CenterEntity;
 import entity.CourseEntity;
 import entity.FeePlanEntity;
 import entity.StudentEntity;
+import entity.UserEntity;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
@@ -24,6 +25,7 @@ import repository.CenterRepository;
 import repository.CourseRepository;
 import repository.FeePlanRepository;
 import repository.StudentRepository;
+import repository.UserRepository;
 
 @Controller
 @RequestMapping(value = "/")
@@ -44,6 +46,8 @@ public class ManagementController {
     @Autowired
     CourseRepository courseRepo;
 
+     @Autowired
+     UserRepository userRepo;
     @RequestMapping(value = "management/management", method = RequestMethod.GET)
     public String showManagementPage(Model model) {
 
@@ -81,15 +85,21 @@ public class ManagementController {
 
     @RequestMapping(value = "management/addNewStudent", method = RequestMethod.GET)
     public String showAddNewStudent(Model model) {
-
-        model.addAttribute("student", new StudentEntity());
+        UserEntity user = new UserEntity();
+        StudentEntity student = new StudentEntity();
+        student.setUser(user);
+        model.addAttribute("student", student);
 
         return "management/addNewStudent";
     }
 
     @RequestMapping(value = "management/addNewStudent", method = RequestMethod.POST)
     public String saveNewStudent(StudentEntity student, Model model) {
-
+        UserEntity user = student.getUser();
+        user.setRoleName("ROLE_USER");
+        user.setEnabled(true);
+        userRepo.save(user);
+        student.setUser(user);
         studentRepo.save(student);
         return "redirect:/management/student";
     }

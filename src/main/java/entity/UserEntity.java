@@ -1,4 +1,3 @@
-
 package entity;
 
 import java.util.List;
@@ -12,23 +11,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class UserEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String userName;
     private String password;
     private String roleName;
-    
-     
-     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private boolean enabled;
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     List<StudentEntity> studentList;
-      @ManyToOne
-    @JoinColumn(name = "employeeId")
-    private EmployeeEntity employee;
+
+    
 
     public UserEntity() {
     }
@@ -67,15 +64,22 @@ public class UserEntity {
 
     
 
-    public EmployeeEntity getEmployee() {
-        return employee;
+    public List<StudentEntity> getStudentList() {
+        return studentList;
     }
 
-    public void setEmployee(EmployeeEntity employee) {
-        this.employee = employee;
+    public void setStudentList(List<StudentEntity> studentList) {
+        this.studentList = studentList;
     }
-      
-      
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     
-    
+
 }

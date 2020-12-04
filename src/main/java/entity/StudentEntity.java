@@ -45,13 +45,13 @@ public class StudentEntity {
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
     List<StudentCourseEntity> studentCourseList;
     
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name ="centerId")
-    private CenterEntity center;
+    private CenterEntity center;*/
     
     @ManyToOne
     @JoinColumn(name = "userId")
-    private UserEntity users;
+    private UserEntity user;
 
     public StudentEntity() {
     }
@@ -152,21 +152,27 @@ public class StudentEntity {
         this.studentCourseList = studentCourseList;
     }
 
-    public CenterEntity getCenter() {
+    /*public CenterEntity getCenter() {
         return center;
     }
 
     public void setCenter(CenterEntity center) {
         this.center = center;
+    }*/
+
+    public UserEntity getUser() {
+        return user;
     }
 
-    public UserEntity getUsers() {
-        return users;
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 
-    public void setUsers(UserEntity users) {
-        this.users = users;
-    }
+    
+
+    
+
+    
 
     
 
