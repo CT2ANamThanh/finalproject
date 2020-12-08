@@ -7,8 +7,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -25,10 +23,12 @@ public class EnquiryEntity {
     private LocalDate equiryDate;
     private String sex;
     private String address;
-
-    @ManyToOne
+    private String major;
+    private String sourceName;
+    private String enquiryStatus;
+    /*@ManyToOne
     @JoinColumn(name = "centerId")
-    private CenterEntity center;
+    private CenterEntity center;*/
     
     @OneToMany(mappedBy = "enquiry", fetch = FetchType.LAZY)
     List<FollowEntity> followList;
@@ -76,13 +76,39 @@ public class EnquiryEntity {
         this.address = address;
     }
 
-    public CenterEntity getCenter() {
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
+    }
+
+    public String getSourceName() {
+        return sourceName;
+    }
+
+    public void setSourceName(String sourceName) {
+        this.sourceName = sourceName;
+    }
+    
+
+    public String getEnquiryStatus() {
+        return enquiryStatus;
+    }
+
+    public void setEnquiryStatus(String enquiryStatus) {
+        this.enquiryStatus = enquiryStatus;
+    }
+    
+
+    /*public CenterEntity getCenter() {
         return center;
     }
 
     public void setCenter(CenterEntity center) {
         this.center = center;
-    }
+    }*/
 
     public List<FollowEntity> getFollowList() {
         return followList;

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : Nov 16, 2020, 12:51:20 PM
+    Document   : enquỉy
+    Created on : Dec 7, 2020, 2:28:11 PM
     Author     : Administrator
 --%>
 
@@ -43,11 +43,23 @@
                     </li>
 
                     
+                    <li class="nav-item">
+                        <a  class="nav-link" href="addNewEnquiry">Add New</a>
+                    </li>
 
                 </ul>
 
                 <!-- SEARCH FORM -->
-                
+                 <form class="form-inline ml-3" action="${pageContext.request.contextPath}/search4" method="get">
+                    <div class="input-group input-group-sm">
+                        <input class="form-control form-control-navbar" type="text" name="searchText" id="searchText" value="${searchText}" placeholder="Search...">
+                        <div class="input-group-append">
+                            <button class="btn btn-navbar" type="submit" value="Search">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>                   
+                </form>
 
                 <!-- Right navbar links -->
                 
@@ -90,26 +102,18 @@
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="enquiry" class="nav-link">
+                                        <a href="#" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Manage Enquiry</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="follow" class="nav-link">
+                                        <a href="#" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Follow Up</p>
                                         </a>
                                     </li>
-                                   <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/logout" class="nav-link">
-                                    <i ></i>
-                                    <p>
-                                       Đăng Xuất
-
-                                    </p>
-                                </a>
-                            </li>
+                                   
                                 </ul>
                             </li>
                             
@@ -122,18 +126,60 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
+            <<div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <div class="content-header">
                     <div class="container-fluid">
-                        
-                    </div><!-- /.container-fluid -->
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1 class="m-0 text-dark">Student Manager</h1>
+                            </div>                           
+                        </div>
+                    </div>
                 </div>
-                <!-- /.content-header -->
-
-                <!-- Main content -->
                 
-            <!-- /.content-wrapper -->
+                
+                <div class="card">
+                    <c:if test="${enquiryList.size()>0}">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>                                   
+                                    <th>Name</th>                                    
+                                    <th>Enquiry Date</th>
+                                    <th>Gender</th>
+                                    <th>Address</th>
+                                    <th>Major</th>
+                                    <th>Source Name</th>
+                                    <th>Enquiry Status</th>
+                                    
+                                    
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <c:forEach var="enquiry" items="${enquiryList}">
+                                    <tr>
+                                        <td>${enquiry.id}</td>
+                                        <td>${enquiry.name}</td>
+                                        <td>${enquiry.equiryDate}</td>                                         
+                                        <td>${enquiry.sex}</td>
+                                        <td>${enquiry.address}</td>
+                                        <td>${enquiry.major}</td>
+                                        <td>${enquiry.sourceName}</td>
+                                        <td>${enquiry.enquiryStatus}</td>                                     
+                                        <td><a href="edit/${enquiry.id}" style="color: yellowgreen;" class="fa fa fa-pen"></a></td>
+                                        <td><a href="delete/${enquiry.id}" style="color: red;" class="fa fa-trash"></a></td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </c:if>
+                    
+                    <c:if test="${enquiryList.size()==0}">
+                        <c:out value="There is no result.Try again" />
+                    </c:if>
+                </div>
 
             <!-- Control Sidebar -->
             <aside class="control-sidebar control-sidebar-dark">

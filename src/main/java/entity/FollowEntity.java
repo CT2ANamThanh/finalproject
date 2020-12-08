@@ -1,6 +1,7 @@
 
 package entity;
 
+import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -17,12 +19,21 @@ public class FollowEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
-    private String address;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date;
+    private String content;
+    private String result;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate meetTime;
+    
 
     @ManyToOne
     @JoinColumn(name = "enquiryId")
     private EnquiryEntity enquiry;
+    
+    @ManyToOne
+    @JoinColumn(name= "methodId")
+    private MethodEntity method;
 
     public FollowEntity() {
     }
@@ -35,20 +46,36 @@ public class FollowEntity {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
-    public String getAddress() {
-        return address;
+    public String getContent() {
+        return content;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public LocalDate getMeetTime() {
+        return meetTime;
+    }
+
+    public void setMeetTime(LocalDate meetTime) {
+        this.meetTime = meetTime;
     }
 
     public EnquiryEntity getEnquiry() {
@@ -58,6 +85,14 @@ public class FollowEntity {
     public void setEnquiry(EnquiryEntity enquiry) {
         this.enquiry = enquiry;
     }
-    
+
+    public MethodEntity getMethod() {
+        return method;
+    }
+
+    public void setMethod(MethodEntity method) {
+        this.method = method;
+    }
+
     
 }
