@@ -5,6 +5,7 @@
     Author     : Administrator
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="mvc" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,18 +43,18 @@
                 </ul>
 
                 <!-- SEARCH FORM -->
-                
 
 
 
-               
+
+
             </nav>
             <!-- /.navbar -->
 
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
-                <a href="homePage" class="brand-link">
+                <a href="admin" class="brand-link">
                     <img src="${pageContext.request.contextPath}/ADMIN/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span class="brand-text font-weight-light">Trung Tâm Lập Trình Viên </span>
@@ -62,11 +63,18 @@
                 <!-- Sidebar -->
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
-                   
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="image">
+                            <img style="margin-top: 10px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        </div>
+                        <div class="info">
+                            <a style="margin-top: 10px;" href="#" class="d-block">Bảo Thành</a>
+                        </div>
+                    </div>
 
                     <!-- Sidebar Menu -->
                     <nav class="mt-2">
-                        <ul style="margin-top: 30px;"class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <!-- Add icons to the links using the .nav-icon class
                                  with font-awesome or any other icon font library -->
                             <li class="nav-item has-treeview menu-open">
@@ -75,10 +83,10 @@
                                     <li class="nav-item">
                                         <a href="${pageContext.request.contextPath}/user/courseHomePage" class="nav-link">
                                             <i ></i>
-                                           <h3>Chương Trình Học</h3>
+                                            <h3>Chương Trình Học</h3>
                                         </a>
                                     </li>
-                                   
+
                                     <li class="nav-item">
                                         <a href="${pageContext.request.contextPath}/user/batchHomePage" class="nav-link ">
                                             <i ></i>
@@ -97,7 +105,7 @@
                                 <a href="${pageContext.request.contextPath}/logout" class="nav-link">
                                     <i ></i>
                                     <h4>
-                                       Đăng Xuất
+                                        Đăng Xuất
 
                                     </h4>
                                 </a>
@@ -125,33 +133,61 @@
                 <!-- List Product -->
                 <div style="width: 600px;margin-left: 20px;" class="card">
                     <!-- /.card-header -->
+                    <mvc:form modelAttribute="student" action="${pageContext.request.contextPath}/update" method="post">
+                        <table>
 
-                    <table class="table table-hover">
-                   
-                        <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Address</th>                             
-                                <th>Phone Number</th>
-                                <th>Email</th>
+                                <td>ID:</td>
+                                <td><mvc:input path="id" readonly="true" /></td>
                             </tr>
-                        </thead>  
-                        <tbody>
-                            <c:forEach var="center" items="${centerList}"> 
-                                <tr>
-                                    <td>${center.id}</td>
-                                    <td>${center.name}</td>
-                                    <td>${center.address}</td>                                  
-                                    <td>${center.phone}</td>
-                                    <td>${center.email}</td>
-                                    
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
-                    <!-- /.card-body -->
-                   
+
+                            <tr>
+                                <td>First Name(*):</td>
+                                <td><mvc:input path="firstName" required="true"/></td>
+                            </tr>
+                            <tr>
+                                <td>Last Name(*):</td>
+                                <td><mvc:input path="lastName" required="true"/></td>
+                            </tr>
+
+                            <tr>
+                                <td>Address(*):</td>
+                                <td><mvc:input path="address" required="true"/></td>
+                            </tr>
+                            <tr>
+                                <td>Email(*):</td>
+                                <td><mvc:input path="email" required="true"/></td>
+                            </tr>
+                            <tr>
+                                <td>Phone(*):</td>
+                                <td><mvc:input path="phone" required="true"/></td>
+                            </tr>
+
+                            <tr>
+                                <td>Birth Date(*):</td>
+                                <td><mvc:input path="birthDate" type="Date" /></td>
+                            </tr>
+                            <tr>
+                                <td>Start Date(*):</td>
+                                <td><mvc:input path="startDate" type="Date" /></td>
+                            </tr>
+                            <tr>
+                                <td>End Date(*):</td>
+                                <td><mvc:input path="endDate" type="Date" /></td>
+                            </tr>
+
+                            <tr>
+                                <td>Gender(*):</td>
+                                <td><mvc:input path="sex" required="true"/></td>
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="2"><input type="submit" value="save"></td>
+                            </tr>
+                        </table>
+                    </mvc:form>                    <!-- /.card-body -->
+
 
                 </div>
 

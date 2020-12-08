@@ -51,7 +51,7 @@
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
-                <a href="admin" class="brand-link">
+                <a href="homePage" class="brand-link">
                     <img src="${pageContext.request.contextPath}/ADMIN/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span class="brand-text font-weight-light">Trung Tâm Lập Trình Viên </span>
@@ -62,10 +62,10 @@
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                            <img src="${pageContext.request.contextPath}/ADMIN/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                            <img style="margin-top: 15px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
-                            <a href="#" class="d-block">Bảo Thành</a>
+                          <a style="margin-top: 10px;" href="${pageContext.request.contextPath}/user/infomation" class="d-block"><h2>${student.lastName}</h2></a>
                         </div>
                     </div>
 
@@ -98,16 +98,15 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a href="user" class="nav-link">
-                                    <i class="nav-icon fas fa-users"></i>
+                           <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/logout" class="nav-link">
+                                    <i ></i>
                                     <h4>
-                                        Đăng Xuất
+                                       Đăng Xuất
 
                                     </h4>
                                 </a>
                             </li>
-
 
                         </ul>
                     </nav>
@@ -143,13 +142,10 @@
                                             <div class="profile-usertitle-name"></div>                  
                                             <div class="profile-usertitle-job"></div>              
                                         </div>                                                
-                                        <div class="profile-userbuttons">                 
-                                            <button style="margin-left: 40px;" type="button" class="btn btn-success btn-sm">Trang chủ</button>                  
-                                                            
-                                        </div>                                            
+                                                                              
                                         <div class="profile-usermenu">                    
                                             <ul class="nav"><div class="logo_menuchinh" style="float:left; padding-top:5px; padding-left:10px; color:#fff; margin-left:auto; margin-right:auto;  line-height:40px; font-size:16px;font-weight:bold;font-family:Arial"></div><div class="menu-icon"><span></span></div>                      
-                                                <li class="active"><a href="#"> <i class="glyphicon glyphicon-info-sign"></i>Cập nhật thông tin cá nhân </a>                     
+                                                <li class="active"><a href="edit/${student.id}"> <i class="glyphicon glyphicon-info-sign"></i>Cập nhật thông tin cá nhân </a>                     
                                                 </li>                       
                                                                  
                                                 </li>                       
@@ -168,15 +164,7 @@
 
                                        
 
-                                        <tr>
-                                            <th>Id:</th>
-                                            <td>${student.id}</td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <th>Student Code:</th>
-                                            <td>${student.studentCode}</td>
-                                        </tr>
+                                                                               
                                         
                                         <tr>
                                             <th>First Name:</th>  

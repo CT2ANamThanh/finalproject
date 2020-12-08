@@ -44,14 +44,14 @@
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                           <img style="margin-top: 10px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                           <img style="margin-top: 15px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
-                           <c:forEach var="student" items="${student.id}"> 
+                          
                         <div class="info">
-                            <a style="margin-top: 10px;" href="${pageContext.request.contextPath}/user/infomation" class="d-block">${student.lastName}</a>
+                            <a style="margin-top: 10px;" href="${pageContext.request.contextPath}/user/infomation" class="d-block"><h2>${lastName}</h2></a>
                              
                         </div>
-                           </c:forEach>
+                   
                     </div>
                     >
                     <!-- Sidebar Menu -->

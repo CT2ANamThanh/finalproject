@@ -8,6 +8,7 @@ import entity.UserEntity;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -57,7 +58,16 @@ public class StudentController {
     
     @RequestMapping(value = "user/homePage", method = RequestMethod.GET)
     public String showPage(Model model) {
-
+            //Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            String lastName = "";
+            String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+            
+                        
+                StudentEntity student = studentRepo.getStudentByUserName(userName);
+                lastName = student.getLastName();
+                
+          
+            model.addAttribute("lastName", lastName);
         return "user/homePage";
     }
     
@@ -89,14 +99,28 @@ public class StudentController {
         return "user/batchHomePage";
     }
     
-    @RequestMapping(value = "/user/infomation/{id}", method = RequestMethod.GET)
-    public String showDetailProduct(@PathVariable(value = "id") int id, Model model) {
-        List<StudentEntity> studentList = (List<StudentEntity>) studentRepo.findAll();
-        StudentEntity student = studentRepo.findById(id);
+   
+   @RequestMapping(value = "/user/infomation", method = RequestMethod.GET)
+    public String showInfomation( Model model) {
+         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+         StudentEntity student = studentRepo.getStudentByUserName(userName);
         model.addAttribute("student", student);
-        model.addAttribute("studentList", studentList);
-       
+        
         return "user/infomation";
     }
-   
+    /*@RequestMapping(value = "user/edit", method = RequestMethod.GET)
+    public String showEditInformation(Model model) {
+
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+         StudentEntity student = studentRepo.getStudentByUserName(userName);
+        model.addAttribute("student", student);
+
+        return "user/editInformation";
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String updateProduct(StudentEntity student) {
+        StudentEntity newStudent = studentRepo.save(student);
+        return "redirect:/user/editInformation";
+    }*/
 }
