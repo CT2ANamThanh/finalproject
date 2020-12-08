@@ -1,10 +1,11 @@
 <%-- 
-    Document   : index
-    Created on : Nov 16, 2020, 12:51:20 PM
+    Document   : editEnquiry
+    Created on : Dec 8, 2020, 9:10:27 AM
     Author     : Administrator
 --%>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="mvc" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -42,15 +43,16 @@
                         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                     </li>
 
+
                     
 
                 </ul>
 
                 <!-- SEARCH FORM -->
-                
+
 
                 <!-- Right navbar links -->
-                
+
             </nav>
             <!-- /.navbar -->
 
@@ -90,29 +92,21 @@
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="enquiry" class="nav-link">
+                                        <a href="#" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Manage Enquiry</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="follow" class="nav-link">
+                                        <a href="#" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Follow Up</p>
                                         </a>
                                     </li>
-                                   <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/logout" class="nav-link">
-                                    <i ></i>
-                                    <p>
-                                       Đăng Xuất
-
-                                    </p>
-                                </a>
-                            </li>
+                                   
                                 </ul>
                             </li>
-                            
+
 
                         </ul>
                     </nav>
@@ -122,69 +116,116 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
+            <<div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <div class="content-header">
                     <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1 class="m-0 text-dark">Add New</h1>
+                            </div>                           
+                        </div>
+                    </div>
+                </div>
+
+                <mvc:form modelAttribute="enquiry" action="${pageContext.request.contextPath}/update4" method="post">
+                    <table>
                         
-                    </div><!-- /.container-fluid -->
-                </div>
-                <!-- /.content-header -->
+                        <tr>
+                            <td>ID:</td>
+                            <td><mvc:input path="id" readonly="true" /></td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Name(*):</td>
+                            <td><mvc:input path="name" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Enquiry Date(*):</td>
+                            <td><mvc:input path="equiryDate" type="Date"/></td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Gender(*):</td>
+                            <td><mvc:input path="sex" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Address(*):</td>
+                            <td><mvc:input path="address" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Major(*):</td>
+                            <td><mvc:input path="major" required="true"/></td>
+                        </tr>
 
-                <!-- Main content -->
-                
-            <!-- /.content-wrapper -->
-
-            <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark">
-                <!-- Control sidebar content goes here -->
-            </aside>
-            <!-- /.control-sidebar -->
-
-            <!-- Main Footer -->
-            <footer class="main-footer">
-                <strong>Copyright &copy; 2020 <a>ATHENA Co</a>.</strong>
-                All rights reserved.
-                <div class="float-right d-none d-sm-inline-block">
-                    <b>Version</b> 3.0.5
-                </div>
-            </footer>
-        
+                        <tr>
+                            <td>Source Name (*):</td>
+                            <td><mvc:input path="sourceName" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Enquiry Status(*):</td>
+                            <td><mvc:input path="enquiryStatus" required="true"/></td>
+                        </tr>
+                        
+                        
+                        <tr>
+                            <td colspan="2"><input type="submit" value="save"></td>
+                        </tr>
+                    </table>
+                </mvc:form>
 
 
 
-        </div>
-        <!-- ./wrapper -->
+                <!-- Control Sidebar -->
+                <aside class="control-sidebar control-sidebar-dark">
+                    <!-- Control sidebar content goes here -->
+                </aside>
+                <!-- /.control-sidebar -->
 
-        <!-- REQUIRED SCRIPTS -->
-        <!-- jQuery -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery/jquery.min.js"></script>
-        <!-- Bootstrap -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- overlayScrollbars -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="${pageContext.request.contextPath}/ADMIN/dist/js/adminlte.js"></script>
+                <!-- Main Footer -->
+                <footer class="main-footer">
+                    <strong>Copyright &copy; 2020 <a>ATHENA Co</a>.</strong>
+                    All rights reserved.
+                    <div class="float-right d-none d-sm-inline-block">
+                        <b>Version</b> 3.0.5
+                    </div>
+                </footer>
 
-        <!-- OPTIONAL SCRIPTS -->
-        <script src="${pageContext.request.contextPath}/ADMIN/dist/js/demo.js"></script>
 
-        <!-- PAGE PLUGINS -->
-        <!-- jQuery Mapael -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/raphael/raphael.min.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mapael/jquery.mapael.min.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mapael/maps/usa_states.min.js"></script>
-        <!-- ChartJS -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/chart.js/Chart.min.js"></script>
 
-        <!-- PAGE SCRIPTS -->
-        <script src="${pageContext.request.contextPath}/ADMIN/dist/js/pages/dashboard2.js"></script>
-        <!-- DataTables -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+            </div>
+            <!-- ./wrapper -->
+
+            <!-- REQUIRED SCRIPTS -->
+            <!-- jQuery -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery/jquery.min.js"></script>
+            <!-- Bootstrap -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- overlayScrollbars -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+            <!-- AdminLTE App -->
+            <script src="${pageContext.request.contextPath}/ADMIN/dist/js/adminlte.js"></script>
+
+            <!-- OPTIONAL SCRIPTS -->
+            <script src="${pageContext.request.contextPath}/ADMIN/dist/js/demo.js"></script>
+
+            <!-- PAGE PLUGINS -->
+            <!-- jQuery Mapael -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/raphael/raphael.min.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+            <!-- ChartJS -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/chart.js/Chart.min.js"></script>
+
+            <!-- PAGE SCRIPTS -->
+            <script src="${pageContext.request.contextPath}/ADMIN/dist/js/pages/dashboard2.js"></script>
+            <!-- DataTables -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables/jquery.dataTables.min.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
     </body>
 </html>

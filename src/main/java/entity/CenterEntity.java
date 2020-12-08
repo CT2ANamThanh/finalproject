@@ -23,8 +23,8 @@ public class CenterEntity {
     private String email;
     private String phone;
 
-    @OneToMany(mappedBy = "center", fetch = FetchType.LAZY)
-    List<EnquiryEntity> enquiryList;
+    /*@OneToMany(mappedBy = "center", fetch = FetchType.LAZY)
+    List<EnquiryEntity> enquiryList;*/
 
     /*@OneToMany(mappedBy = "center", fetch = FetchType.LAZY)
     List<StudentEntity> studentList;*/
@@ -80,13 +80,13 @@ public class CenterEntity {
         this.phone = phone;
     }
 
-    public List<EnquiryEntity> getEnquiryList() {
+    /*public List<EnquiryEntity> getEnquiryList() {
         return enquiryList;
     }
 
     public void setEnquiryList(List<EnquiryEntity> enquiryList) {
         this.enquiryList = enquiryList;
-    }
+    }*/
 
    /* public List<StudentEntity> getStudentList() {
         return studentList;

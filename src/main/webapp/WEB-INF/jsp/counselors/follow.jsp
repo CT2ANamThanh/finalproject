@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : Nov 16, 2020, 12:51:20 PM
+    Document   : follow
+    Created on : Dec 7, 2020, 3:24:09 PM
     Author     : Administrator
 --%>
 
@@ -43,11 +43,23 @@
                     </li>
 
                     
+                    <li class="nav-item">
+                        <a  class="nav-link" href="#">Add New</a>
+                    </li>
 
                 </ul>
 
                 <!-- SEARCH FORM -->
-                
+                 <form class="form-inline ml-3" action="${pageContext.request.contextPath}/search" method="get">
+                    <div class="input-group input-group-sm">
+                        <input class="form-control form-control-navbar" type="text" name="searchText" id="searchText" value="${searchText}" placeholder="Search...">
+                        <div class="input-group-append">
+                            <button class="btn btn-navbar" type="submit" value="Search">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>                   
+                </form>
 
                 <!-- Right navbar links -->
                 
@@ -90,26 +102,18 @@
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="enquiry" class="nav-link">
+                                        <a href="#" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Manage Enquiry</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="follow" class="nav-link">
+                                        <a href="#" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Follow Up</p>
                                         </a>
                                     </li>
-                                   <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/logout" class="nav-link">
-                                    <i ></i>
-                                    <p>
-                                       Đăng Xuất
-
-                                    </p>
-                                </a>
-                            </li>
+                                   
                                 </ul>
                             </li>
                             
@@ -122,18 +126,60 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
+            <<div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <div class="content-header">
                     <div class="container-fluid">
-                        
-                    </div><!-- /.container-fluid -->
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1 class="m-0 text-dark">Follow Up</h1>
+                            </div>                           
+                        </div>
+                    </div>
                 </div>
-                <!-- /.content-header -->
-
-                <!-- Main content -->
                 
-            <!-- /.content-wrapper -->
+                
+                <div class="card">
+                    <c:if test="${followList.size()>0}">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>                                   
+                                    <th>Enquiry</th>                                    
+                                    <th>Method</th>
+                                    <th>Date</th>
+                                    <th>Content</th>
+                                    <th>Result</th>
+                                    <th>Meet Time</th>
+                                    
+                                    
+                                    
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <c:forEach var="follow" items="${followList}">
+                                    <tr>
+                                        <td>${follow.id}</td>
+                                        <td>${follow.enquiry.name}</td>
+                                        <td>${follow.method.methodName}</td>                                         
+                                        <td>${follow.date}</td>
+                                        <td>${follow.content}</td>
+                                        <td>${follow.result}</td>
+                                        <td>${follow.meetTime}</td>
+                                                                             
+                                        <td><a href="edit1/${follow.id}" style="color: yellowgreen;" class="fa fa fa-pen"></a></td>
+                                        <td><a href="delete1/${follow.id}" style="color: red;" class="fa fa-trash"></a></td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </c:if>
+                    
+                    <c:if test="${followList.size()==0}">
+                        <c:out value="There is no result.Try again" />
+                    </c:if>
+                </div>
 
             <!-- Control Sidebar -->
             <aside class="control-sidebar control-sidebar-dark">
