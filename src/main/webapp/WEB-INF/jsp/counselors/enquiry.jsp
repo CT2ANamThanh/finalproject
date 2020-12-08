@@ -113,6 +113,15 @@
                                             <p>Follow Up</p>
                                         </a>
                                     </li>
+                                     <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/logout" class="nav-link">
+                                    <i ></i>
+                                    <h4>
+                                       Đăng Xuất
+
+                                    </h4>
+                                </a>
+                            </li>
                                    
                                 </ul>
                             </li>
