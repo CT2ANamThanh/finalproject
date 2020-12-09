@@ -8,6 +8,7 @@
                            http://www.springframework.org/schema/security 
                            http://www.springframework.org/schema/security/spring-security.xsd
 ">
+    <!--login-->
     <security:authentication-manager>
         <security:authentication-provider>
             <security:jdbc-user-service
@@ -32,11 +33,33 @@
             username-parameter="username"          
             password-parameter="password"
         />
+        <!--logout-->
         <security:logout
             invalidate-session="true"
             logout-success-url="/login"
         />
     </security:http>
+    
+    <!--send Email-->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com"/>
+        <property name="port" value="587"/>
+        <property name="username" value="buitrungnam120816@gmail.com"/>
+        <property name="password" value="01695445190SX"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.debug">true</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="preConfiguredMessage" class="org.springframework.mail.SimpleMailMessage">
+        <property name="to" value="${orders.getEmail()}"></property>
+        <property name="from" value="buitrungnam120816@gmail.com"></property>
+    </bean>
+    
     <bean id="myAuthenticationSuccessHandler"
             class="redirectLogin.MySimpleUrlAuthenticationSuccessHandler" />
       

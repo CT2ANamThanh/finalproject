@@ -4,17 +4,14 @@ import entity.BatchEntity;
 import entity.CenterEntity;
 import entity.CourseEntity;
 import entity.StudentEntity;
-import entity.UserEntity;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import repository.BatchRepository;
 import repository.CenterRepository;
 import repository.CourseRepository;
@@ -35,6 +32,8 @@ public class StudentController {
     StudentRepository studentRepo;
     @Autowired
     UserRepository userRepo;
+    @Autowired
+    private JavaMailSender javaMailSender;
     //login
      @RequestMapping(value = "/", method = RequestMethod.GET)
     public String showLogin(Model model) {
@@ -74,6 +73,15 @@ public class StudentController {
 
     @RequestMapping(value = "user/courseHomePage", method = RequestMethod.GET)
     public String showProduct(Model model) {
+        SimpleMailMessage msg = new SimpleMailMessage();
+                msg.setTo(student.getEmail());
+                msg.setSubject("Register Course Successfully");
+                msg.setText("Congratulations! You have successfully booked."
+                        + "\n Your Orders Details "
+                        + "\n        Name: " + student.
+                        
+                        + "\n Thank you Thank you for purchasing our products, have a nice day");
+                javaMailSender.send(msg);
          String lastName = "";
             String userName = SecurityContextHolder.getContext().getAuthentication().getName();
             
