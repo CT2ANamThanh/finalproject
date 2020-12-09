@@ -42,11 +42,11 @@
                 </ul>
 
                 <!-- SEARCH FORM -->
-                
 
 
 
-               
+
+
             </nav>
             <!-- /.navbar -->
 
@@ -58,15 +58,25 @@
                          style="opacity: .8">
                     <span href="" class="brand-text font-weight-light">Trung Tâm Lập Trình Viên </span>
                 </a>
-
+              
                 <!-- Sidebar -->
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
-                   
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="image">
+                            <img style="margin-top: 15px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        </div>
+
+                        <div class="info">
+                            <a style="margin-top: 10px;" href="${pageContext.request.contextPath}/user/infomation" class="d-block"><h2>${lastName}</h2></a>
+
+                        </div>
+
+                    </div>
 
                     <!-- Sidebar Menu -->
                     <nav class="mt-2">
-                        <ul style="margin-top: 30px;" class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <ul  class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <!-- Add icons to the links using the .nav-icon class
                                  with font-awesome or any other icon font library -->
                             <li class="nav-item has-treeview menu-open">
@@ -78,7 +88,7 @@
                                             <h3>Chương Trình Học</h3>
                                         </a>
                                     </li>
-                                    
+
                                     <li class="nav-item">
                                         <a href="${pageContext.request.contextPath}/user/batchHomePage" class="nav-link ">
                                             <i ></i>
@@ -97,7 +107,7 @@
                                 <a href="${pageContext.request.contextPath}/logout" class="nav-link">
                                     <i ></i>
                                     <h4>
-                                       Đăng Xuất
+                                        Đăng Xuất
 
                                     </h4>
                                 </a>
@@ -128,7 +138,7 @@
                     <!-- /.card-header -->
 
                     <table class="table table-hover">
-                   
+
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -146,13 +156,13 @@
                                     <td>${batch.startDate}</td>                                  
                                     <td>${batch.className}</td>
                                     <td>${batch.batchStatus}</td>
-                                   
+
                                 </tr>
                             </c:forEach>
                         </tbody>
                     </table>
                     <!-- /.card-body -->
-                   
+
 
                 </div>
 

@@ -74,6 +74,15 @@ public class StudentController {
 
     @RequestMapping(value = "user/courseHomePage", method = RequestMethod.GET)
     public String showProduct(Model model) {
+         String lastName = "";
+            String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+            
+                        
+                StudentEntity student = studentRepo.getStudentByUserName(userName);
+                lastName = student.getLastName();
+                
+          
+            model.addAttribute("lastName", lastName);
         List<CourseEntity> courseList = (List<CourseEntity>) courseRepo.findAll();
 
         model.addAttribute("courseList", courseList);
@@ -83,6 +92,15 @@ public class StudentController {
 
     @RequestMapping(value = "user/centerHomePage", method = RequestMethod.GET)
     public String showCenter(Model model) {
+        String lastName = "";
+            String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+            
+                        
+                StudentEntity student = studentRepo.getStudentByUserName(userName);
+                lastName = student.getLastName();
+                
+          
+            model.addAttribute("lastName", lastName);
         List<CenterEntity> centerList = (List<CenterEntity>) centerRepo.findAll();
 
         model.addAttribute("centerList", centerList);
@@ -92,6 +110,15 @@ public class StudentController {
 
     @RequestMapping(value = "user/batchHomePage", method = RequestMethod.GET)
     public String showBatch(Model model) {
+         String lastName = "";
+            String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+            
+                        
+                StudentEntity student = studentRepo.getStudentByUserName(userName);
+                lastName = student.getLastName();
+                
+          
+            model.addAttribute("lastName", lastName);
         List<BatchEntity> batchList = (List<BatchEntity>) batchRepo.findAll();
 
         model.addAttribute("batchList", batchList);

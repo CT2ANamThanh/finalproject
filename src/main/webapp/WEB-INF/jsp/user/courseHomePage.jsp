@@ -42,11 +42,11 @@
                 </ul>
 
                 <!-- SEARCH FORM -->
-                
 
 
 
-               
+
+
             </nav>
             <!-- /.navbar -->
 
@@ -62,7 +62,17 @@
                 <!-- Sidebar -->
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
-                  
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="image">
+                            <img style="margin-top: 15px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        </div>
+
+                        <div class="info">
+                            <a style="margin-top: 10px;" href="${pageContext.request.contextPath}/user/infomation" class="d-block"><h2>${lastName}</h2></a>
+
+                        </div>
+
+                    </div>
 
                     <!-- Sidebar Menu -->
                     <nav class="mt-2">
@@ -78,7 +88,7 @@
                                             <h3>Chương Trình Học</h3>
                                         </a>
                                     </li>
-                                    
+
                                     <li class="nav-item">
                                         <a href="${pageContext.request.contextPath}/user/batchHomePage" class="nav-link ">
                                             <i ></i>
@@ -93,11 +103,11 @@
                                     </li>
                                 </ul>
                             </li>
-                          <li class="nav-item">
+                            <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/logout" class="nav-link">
                                     <i ></i>
                                     <h4>
-                                       Đăng Xuất
+                                        Đăng Xuất
 
                                     </h4>
                                 </a>
@@ -128,14 +138,14 @@
                     <!-- /.card-header -->
 
                     <table class="table table-hover">
-                   
+
                         <thead>
                             <tr>
                                 <th>Id</th>
                                 <th>Tên Môn Học</th>
                                 <th>Ngày Bắt Đầu</th>                             
                                 <th>Trung Tâm</th>
-                               
+
                             </tr>
                         </thead>  
                         <tbody>
@@ -151,7 +161,7 @@
                         </tbody>
                     </table>
                     <!-- /.card-body -->
-                   
+
 
                 </div>
 

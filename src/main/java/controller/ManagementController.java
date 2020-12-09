@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,17 +47,31 @@ public class ManagementController {
     @Autowired
     CourseRepository courseRepo;
 
-     @Autowired
-     UserRepository userRepo;
+    @Autowired
+    UserRepository userRepo;
+
     @RequestMapping(value = "management/management", method = RequestMethod.GET)
     public String showManagementPage(Model model) {
+        String lastName = "";
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
 
+        StudentEntity student = studentRepo.getStudentByUserName(userName);
+        lastName = student.getLastName();
+
+        model.addAttribute("lastName", lastName);
         return "management/management";
     }
 
     //STUDENT MANAGE
     @RequestMapping(value = "management/student", method = RequestMethod.GET)
     public String showManagerStudent(Model model) {
+        String lastName = "";
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        StudentEntity student = studentRepo.getStudentByUserName(userName);
+        lastName = student.getLastName();
+
+        model.addAttribute("lastName", lastName);
         List<StudentEntity> studentList = (List<StudentEntity>) studentRepo.findAll();
         model.addAttribute("studentList", studentList);
         return "management/student";
@@ -85,6 +100,7 @@ public class ManagementController {
 
     @RequestMapping(value = "management/addNewStudent", method = RequestMethod.GET)
     public String showAddNewStudent(Model model) {
+
         UserEntity user = new UserEntity();
         StudentEntity student = new StudentEntity();
         student.setUser(user);
@@ -117,6 +133,13 @@ public class ManagementController {
     //BATCH MANAGE
     @RequestMapping(value = "management/batch", method = RequestMethod.GET)
     public String showManagerBatch(Model model) {
+        String lastName = "";
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        StudentEntity student = studentRepo.getStudentByUserName(userName);
+        lastName = student.getLastName();
+
+        model.addAttribute("lastName", lastName);
         List<BatchEntity> batchList = (List<BatchEntity>) batchRepo.findAll();
         model.addAttribute("batchList", batchList);
         return "management/batch";
@@ -124,6 +147,13 @@ public class ManagementController {
 
     @RequestMapping(value = "management/addNewBatch", method = RequestMethod.GET)
     public String showAddNewBatch(Model model) {
+        String lastName = "";
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        StudentEntity student = studentRepo.getStudentByUserName(userName);
+        lastName = student.getLastName();
+
+        model.addAttribute("lastName", lastName);
         List<CenterEntity> centerList = (List<CenterEntity>) centerRepo.findAll();
         //model.addAttribute("batch", new BatchEntity());
         model.addAttribute("centerList", centerList);
@@ -151,7 +181,13 @@ public class ManagementController {
     @RequestMapping(value = "management/edit1/{id}", method = RequestMethod.GET)
     public String showEditBatch(@PathVariable(value = "id") int id, Model model) {
         List<CenterEntity> centerList = (List<CenterEntity>) centerRepo.findAll();
+        String lastName = "";
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
 
+        StudentEntity student = studentRepo.getStudentByUserName(userName);
+        lastName = student.getLastName();
+
+        model.addAttribute("lastName", lastName);
         BatchEntity batch = batchRepo.findById(id);
         model.addAttribute("batch", batch);
         model.addAttribute("centerList", centerList);
@@ -178,6 +214,13 @@ public class ManagementController {
     //COURSE MANAGE
     @RequestMapping(value = "management/course", method = RequestMethod.GET)
     public String showManagerCourse(Model model) {
+        String lastName = "";
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        StudentEntity student = studentRepo.getStudentByUserName(userName);
+        lastName = student.getLastName();
+
+        model.addAttribute("lastName", lastName);
         List<CourseEntity> courseList = (List<CourseEntity>) courseRepo.findAll();
         model.addAttribute("courseList", courseList);
         return "management/course";
@@ -185,6 +228,13 @@ public class ManagementController {
 
     @RequestMapping(value = "management/addNewCourse", method = RequestMethod.GET)
     public String showAddNewCourse(Model model) {
+        String lastName = "";
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        StudentEntity student = studentRepo.getStudentByUserName(userName);
+        lastName = student.getLastName();
+
+        model.addAttribute("lastName", lastName);
         List<CenterEntity> centerList = (List<CenterEntity>) centerRepo.findAll();
         List<FeePlanEntity> feeplanList = (List<FeePlanEntity>) feePlanRepo.findAll();
         model.addAttribute("course", new CourseEntity());
@@ -203,6 +253,14 @@ public class ManagementController {
 
     @RequestMapping(value = "management/edit2/{id}", method = RequestMethod.GET)
     public String showEditCourse(@PathVariable(value = "id") int id, Model model) {
+        String lastName = "";
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        StudentEntity student = studentRepo.getStudentByUserName(userName);
+        lastName = student.getLastName();
+
+        model.addAttribute("lastName", lastName);
+
         List<CenterEntity> centerList = (List<CenterEntity>) centerRepo.findAll();
         List<FeePlanEntity> feeplanList = (List<FeePlanEntity>) feePlanRepo.findAll();
         CourseEntity course = courseRepo.findById(id);
@@ -239,7 +297,13 @@ public class ManagementController {
     //REPORT
     @RequestMapping(value = "management/report", method = RequestMethod.GET)
     public String showManagerReport(Model model) {
+        String lastName = "";
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
 
+        StudentEntity student = studentRepo.getStudentByUserName(userName);
+        lastName = student.getLastName();
+
+        model.addAttribute("lastName", lastName);
         return "management/report";
     }
 
