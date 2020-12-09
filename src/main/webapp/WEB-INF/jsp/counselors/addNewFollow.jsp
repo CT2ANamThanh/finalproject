@@ -1,6 +1,6 @@
 <%-- 
-    Document   : addNewStudent
-    Created on : Nov 19, 2020, 9:19:33 AM
+    Document   : addNewFollow
+    Created on : Dec 8, 2020, 10:06:03 AM
     Author     : Administrator
 --%>
 
@@ -44,7 +44,7 @@
                     </li>
 
 
-                    
+
 
                 </ul>
 
@@ -59,7 +59,7 @@
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
-                <a href="management" class="brand-link">
+                <a href="counselors" class="brand-link">
                     <img src="${pageContext.request.contextPath}/ADMIN/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span class="brand-text font-weight-light">ACADEMY</span>
@@ -85,29 +85,22 @@
                             <li class="nav-item has-treeview menu-open">
 
                                 <ul class="nav nav-treeview">
-                                    
                                     <li class="nav-item">
-                                        <a href="student" class="nav-link">
+                                        <a href="#" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Student Manage</p>
+                                            <p>Manage Student Info</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="batch" class="nav-link">
+                                        <a href="enquiry" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Classroom Manage</p>
+                                            <p>Manage Enquiry</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="course" class="nav-link">
+                                        <a href="follow" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>View All Center Courses</p>
-                                        </a>
-                                    </li><br>
-                                    <li class="nav-item">
-                                        <a href="report" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Report</p>
+                                            <p>Follow Up</p>
                                         </a>
                                     </li>
 
@@ -135,59 +128,45 @@
                     </div>
                 </div>
 
-                <mvc:form modelAttribute="student" action="addNewStudent" method="post" enctype="multipart/form-data">
+                <mvc:form modelAttribute="follow" action="addNewFollow" method="post">
                     <table>
-                        
-                        
-                        
+
+
+
                         <tr>
-                            <td>First Name(*):</td>
-                            <td><mvc:input path="firstName" required="true"/></td>
+                            <td>Enquiry(*):</td>
+                            <td><mvc:select path="enquiry.id" class="form-control">
+                                    <mvc:options items="${enquiryList}"/>
+                                </mvc:select>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Last Name(*):</td>
-                            <td><mvc:input path="lastName" required="true"/></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Address(*):</td>
-                            <td><mvc:input path="address" required="true"/></td>
+                            <td>Method(*):</td>
+                            <td><mvc:select path="method.id" class="form-control">
+                                    <mvc:options items="${methodList}"/>
+                                </mvc:select>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Email(*):</td>
-                            <td><mvc:input path="email" required="true"/></td>
+                            <td>Date(*):</td>
+                            <td><mvc:input path="date" type="Date"/></td>
                         </tr>
                         <tr>
-                            <td>Phone(*):</td>
-                            <td><mvc:input path="phone" required="true"/></td>
+                            <td>Content(*):</td>
+                            <td><mvc:input path="content" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Result(*):</td>
+                            <td><mvc:input path="result" required="true"/></td>
                         </tr>
 
                         <tr>
-                            <td>Birth Date(*):</td>
-                            <td><mvc:input path="birthDate" type="Date" /></td>
-                        </tr>
-                        <tr>
-                            <td>Start Date(*):</td>
-                            <td><mvc:input path="startDate" type="Date" /></td>
-                        </tr>
-                        <tr>
-                            <td>End Date(*):</td>
-                            <td><mvc:input path="endDate" type="Date" /></td>
+                            <td>Meet Time (*):</td>
+                            <td><mvc:input path="meetTime" type="Date"/></td>
                         </tr>
 
-                        <tr>
-                            <td>Gender(*):</td>
-                            <td><mvc:input path="sex" required="true"/></td>
-                        </tr>
-                        <tr>
-                            <td>User Name(*):</td>
-                            <td><mvc:input path="user.userName" required="true"/></td>
-                        </tr>
-                        <tr>
-                            <td>Pass Word(*):</td>
-                            <td><mvc:input path="user.password" required="true"/></td>
-                        </tr>
-                        
+
+
                         <tr>
                             <td colspan="2"><input type="submit" value="save"></td>
                         </tr>
