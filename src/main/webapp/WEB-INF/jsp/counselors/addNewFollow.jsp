@@ -1,6 +1,6 @@
 <%-- 
-    Document   : addNewCourse
-    Created on : Nov 25, 2020, 8:24:07 AM
+    Document   : addNewFollow
+    Created on : Dec 8, 2020, 10:06:03 AM
     Author     : Administrator
 --%>
 
@@ -59,7 +59,7 @@
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
-                <a href="management" class="brand-link">
+                <a href="counselors" class="brand-link">
                     <img src="${pageContext.request.contextPath}/ADMIN/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span class="brand-text font-weight-light">ACADEMY</span>
@@ -70,13 +70,12 @@
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                            <img style="margin-top: 18px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/unnamed.jpg" class="img-circle elevation-2" alt="User Image">
+                            <img src="${pageContext.request.contextPath}/ADMIN/dist/img/unnamed.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
-                            <a style="margin-top: 10px;"  class="d-block"><h2>${lastName}</h2></a>
+                            <a href="#" class="d-block">Bảo Thành</a>
                         </div>
                     </div>
-
 
                     <!-- Sidebar Menu -->
                     <nav class="mt-2">
@@ -86,40 +85,24 @@
                             <li class="nav-item has-treeview menu-open">
 
                                 <ul class="nav nav-treeview">
-                                    
                                     <li class="nav-item">
-                                        <a href="student" class="nav-link">
+                                        <a href="#" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Student Manage</p>
+                                            <p>Manage Student Info</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="batch" class="nav-link">
+                                        <a href="enquiry" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Classroom Manage</p>
+                                            <p>Manage Enquiry</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="course" class="nav-link">
+                                        <a href="follow" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>View All Center Courses</p>
-                                        </a>
-                                    </li><br>
-                                    <li class="nav-item">
-                                        <a href="report" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Report</p>
+                                            <p>Follow Up</p>
                                         </a>
                                     </li>
-                                     <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/logout" class="nav-link">
-                                    <i ></i>
-                                    <h4>
-                                       Đăng Xuất
-
-                                    </h4>
-                                </a>
-                            </li>
 
                                 </ul>
                             </li>
@@ -139,40 +122,50 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1 class="m-0 text-dark">Add New Class</h1>
+                                <h1 class="m-0 text-dark">Add New</h1>
                             </div>                           
                         </div>
                     </div>
                 </div>
 
-                <mvc:form modelAttribute="course" action="addNewCourse" method="post">
+                <mvc:form modelAttribute="follow" action="addNewFollow" method="post">
                     <table>
+
+
+
                         <tr>
-                            <td>Center(*):</td>
-                            <td><mvc:select path="center.id" class="form-control">
-                                    <mvc:options items="${centerList}"/>
+                            <td>Enquiry(*):</td>
+                            <td><mvc:select path="enquiry.id" class="form-control">
+                                    <mvc:options items="${enquiryList}"/>
                                 </mvc:select>
                             </td>
                         </tr>
                         <tr>
-                            <td>Fee Plan(*):</td>
-                            <td><mvc:select path="feeplan.id" class="form-control">
-                                    <mvc:options items="${feeplanList}"/>
+                            <td>Method(*):</td>
+                            <td><mvc:select path="method.id" class="form-control">
+                                    <mvc:options items="${methodList}"/>
                                 </mvc:select>
                             </td>
+                        </tr>
+                        <tr>
+                            <td>Date(*):</td>
+                            <td><mvc:input path="date" type="Date"/></td>
+                        </tr>
+                        <tr>
+                            <td>Content(*):</td>
+                            <td><mvc:input path="content" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Result(*):</td>
+                            <td><mvc:input path="result" required="true"/></td>
                         </tr>
 
-                       
                         <tr>
-                            <td>Start Date(*):</td>
-                            <td><mvc:input path="startDate" type="Date"/></td>
+                            <td>Meet Time (*):</td>
+                            <td><mvc:input path="meetTime" type="Date"/></td>
                         </tr>
-                        <tr>
-                            <td>Name(*):</td>
-                            <td><mvc:input path="name" required="true"/></td>
-                        </tr>
-                        
-                        
+
+
 
                         <tr>
                             <td colspan="2"><input type="submit" value="save"></td>
