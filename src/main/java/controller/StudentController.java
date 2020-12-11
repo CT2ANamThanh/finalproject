@@ -7,6 +7,7 @@ import entity.StudentEntity;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,8 +33,7 @@ public class StudentController {
     StudentRepository studentRepo;
     @Autowired
     UserRepository userRepo;
-    @Autowired
-    private JavaMailSender javaMailSender;
+     
     //login
      @RequestMapping(value = "/", method = RequestMethod.GET)
     public String showLogin(Model model) {
@@ -72,16 +72,8 @@ public class StudentController {
     
 
     @RequestMapping(value = "user/courseHomePage", method = RequestMethod.GET)
-    public String showProduct(Model model) {
-        SimpleMailMessage msg = new SimpleMailMessage();
-                msg.setTo(student.getEmail());
-                msg.setSubject("Register Course Successfully");
-                msg.setText("Congratulations! You have successfully booked."
-                        + "\n Your Orders Details "
-                        + "\n        Name: " + student.
-                        
-                        + "\n Thank you Thank you for purchasing our products, have a nice day");
-                javaMailSender.send(msg);
+    public String sendEmail(Model model) {
+       
          String lastName = "";
             String userName = SecurityContextHolder.getContext().getAuthentication().getName();
             
@@ -94,7 +86,8 @@ public class StudentController {
         List<CourseEntity> courseList = (List<CourseEntity>) courseRepo.findAll();
 
         model.addAttribute("courseList", courseList);
-
+//send mail
+        
         return "user/courseHomePage";
     }
 
