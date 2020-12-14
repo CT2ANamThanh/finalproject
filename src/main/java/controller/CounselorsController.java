@@ -58,6 +58,13 @@ public class CounselorsController {
     //Manage Student Counselors
      @RequestMapping(value = "counselors/student2", method = RequestMethod.GET)
     public String showManagerStudent(Model model) {
+        String lastName = "";
+        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        StudentEntity student = studentRepo.getStudentByUserName(userName);
+        lastName = student.getLastName();
+
+        model.addAttribute("lastName", lastName);
         List<StudentEntity> studentList = (List<StudentEntity>) studentRepo.findAll();
         model.addAttribute("studentList", studentList);
         return "counselors/student2";
