@@ -1,6 +1,6 @@
 <%-- 
-    Document   : addNewEnquiry
-    Created on : Dec 8, 2020, 8:38:35 AM
+    Document   : editStudent2
+    Created on : Dec 9, 2020, 10:11:59 AM
     Author     : Administrator
 --%>
 
@@ -59,7 +59,7 @@
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
-                <a href="counselors" class="brand-link">
+                <a href="management" class="brand-link">
                     <img src="${pageContext.request.contextPath}/ADMIN/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span class="brand-text font-weight-light">ACADEMY</span>
@@ -70,14 +70,11 @@
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                           <img style="margin-top: 15px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                            <img src="${pageContext.request.contextPath}/ADMIN/dist/img/unnamed.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
-                          
                         <div class="info">
-                            <a style="margin-top: 10px;" href="${pageContext.request.contextPath}/user/infomation" class="d-block"><h2>${lastName}</h2></a>
-                             
+                            <a href="#" class="d-block">Bảo Thành</a>
                         </div>
-                   
                     </div>
 
                     <!-- Sidebar Menu -->
@@ -86,8 +83,9 @@
                             <!-- Add icons to the links using the .nav-icon class
                                  with font-awesome or any other icon font library -->
                             <li class="nav-item has-treeview menu-open">
-                                
+
                                 <ul class="nav nav-treeview">
+                                    
                                     <li class="nav-item">
                                         <a href="student2" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
@@ -106,15 +104,7 @@
                                             <p>Follow Up</p>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/logout" class="nav-link">
-                                    <i ></i>
-                                    <h4>
-                                       Đăng Xuất
 
-                                    </h4>
-                                </a>
-                            </li>
                                 </ul>
                             </li>
 
@@ -129,53 +119,57 @@
             <!-- Content Wrapper. Contains page content -->
             <<div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-                <div class="content-header">
-                    <div class="container-fluid">
-                        <div class="row mb-2">
-                            <div class="col-sm-6">
-                                <h1 class="m-0 text-dark">Add New</h1>
-                            </div>                           
-                        </div>
-                    </div>
-                </div>
+                
 
-                <mvc:form modelAttribute="enquiry" action="addNewEnquiry" method="post">
+                <mvc:form modelAttribute="student" action="${pageContext.request.contextPath}/update6" method="post">
                     <table>
-                        
-                        
-                        
+
                         <tr>
-                            <td>Name(*):</td>
-                            <td><mvc:input path="name" required="true"/></td>
+                            <td>ID:</td>
+                            <td><mvc:input path="id" readonly="true" /></td>
+                        </tr>
+
+                        <tr>
+                            <td>First Name(*):</td>
+                            <td><mvc:input path="firstName" required="true"/></td>
                         </tr>
                         <tr>
-                            <td>Enquiry Date(*):</td>
-                            <td><mvc:input path="equiryDate" type="Date"/></td>
+                            <td>Last Name(*):</td>
+                            <td><mvc:input path="lastName" required="true"/></td>
                         </tr>
                         
-                        <tr>
-                            <td>Gender(*):</td>
-                            <td><mvc:input path="sex" required="true"/></td>
-                        </tr>
                         <tr>
                             <td>Address(*):</td>
                             <td><mvc:input path="address" required="true"/></td>
                         </tr>
                         <tr>
-                            <td>Major(*):</td>
-                            <td><mvc:input path="major" required="true"/></td>
+                            <td>Email(*):</td>
+                            <td><mvc:input path="email" required="true"/></td>
+                        </tr>
+                        <tr>
+                            <td>Phone(*):</td>
+                            <td><mvc:input path="phone" required="true"/></td>
                         </tr>
 
                         <tr>
-                            <td>Source Name (*):</td>
-                            <td><mvc:input path="sourceName" required="true"/></td>
+                            <td>Birth Date(*):</td>
+                            <td><mvc:input path="birthDate" type="Date" /></td>
                         </tr>
                         <tr>
-                            <td>Enquiry Status(*):</td>
-                            <td><mvc:input path="enquiryStatus" required="true"/></td>
+                            <td>Start Date(*):</td>
+                            <td><mvc:input path="startDate" type="Date" /></td>
+                        </tr>
+                        <tr>
+                            <td>End Date(*):</td>
+                            <td><mvc:input path="endDate" type="Date" /></td>
+                        </tr>
+
+                        <tr>
+                            <td>Gender(*):</td>
+                            <td><mvc:input path="sex" required="true"/></td>
                         </tr>
                         
-                        
+
                         <tr>
                             <td colspan="2"><input type="submit" value="save"></td>
                         </tr>

@@ -33,8 +33,13 @@ public class CounselorsController {
     @Autowired
     MethodRepository methodRepo;
 
+
     @Autowired
     StudentRepository studentRepo;
+
+
+    
+    
 
     @RequestMapping(value = "counselors/counselors", method = RequestMethod.GET)
     public String showPage(Model model) {
@@ -47,6 +52,45 @@ public class CounselorsController {
         model.addAttribute("lastName", lastName);
         return "counselors/counselors";
     }
+
+
+
+    //Manage Student Counselors
+     @RequestMapping(value = "counselors/student2", method = RequestMethod.GET)
+    public String showManagerStudent(Model model) {
+        List<StudentEntity> studentList = (List<StudentEntity>) studentRepo.findAll();
+        model.addAttribute("studentList", studentList);
+        return "counselors/student2";
+    }
+    @RequestMapping(value = "counselors/delete2/{id}", method = RequestMethod.GET)
+    public String deleteStudent(@PathVariable(name = "id") int id) {
+        studentRepo.deleteById(id);
+        return "redirect:/counselors/student2";
+    }
+    @RequestMapping(value = "counselors/edit2/{id}", method = RequestMethod.GET)
+    public String showEditStudent(@PathVariable(value = "id") int id, Model model) {
+
+        StudentEntity student = studentRepo.findById(id);
+        model.addAttribute("student", student);
+
+        return "counselors/editStudent2";
+    }
+
+    @RequestMapping(value = "/update6", method = RequestMethod.POST)
+    public String updateProduct(StudentEntity student) {
+        StudentEntity newStudent = studentRepo.save(student);
+        return "redirect:/counselors/student2";
+    }
+    @RequestMapping(value = "/search6", method = RequestMethod.GET)
+    public String searchStudent(@RequestParam(name = "searchText") String searchText, Model model) {
+
+        String searchText1 = "%" + searchText + "%";
+        List<StudentEntity> studentList = studentRepo.findByFirstNameLikeOrLastNameLike(searchText, searchText1);
+        model.addAttribute("studentList", studentList);
+        model.addAttribute("searchText", searchText);
+        return "counselors/student2";
+    }
+    
 
     //ENQUIRY
     @RequestMapping(value = "counselors/enquiry", method = RequestMethod.GET)

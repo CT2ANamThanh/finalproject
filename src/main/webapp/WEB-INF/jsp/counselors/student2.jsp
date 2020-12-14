@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : Nov 16, 2020, 12:51:20 PM
+    Document   : student2
+    Created on : Dec 9, 2020, 9:59:23 AM
     Author     : Administrator
 --%>
 
@@ -43,11 +43,21 @@
                     </li>
 
                     
+                    
 
                 </ul>
 
                 <!-- SEARCH FORM -->
-                
+                 <form class="form-inline ml-3" action="${pageContext.request.contextPath}/search6" method="get">
+                    <div class="input-group input-group-sm">
+                        <input class="form-control form-control-navbar" type="text" name="searchText" id="searchText" value="${searchText}" placeholder="Search...">
+                        <div class="input-group-append">
+                            <button class="btn btn-navbar" type="submit" value="Search">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>                   
+                </form>
 
                 <!-- Right navbar links -->
                 
@@ -66,16 +76,13 @@
                 <!-- Sidebar -->
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
-                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                           <img style="margin-top: 15px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                            <img src="${pageContext.request.contextPath}/ADMIN/dist/img/unnamed.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
-                          
                         <div class="info">
-                            <a style="margin-top: 10px;" href="${pageContext.request.contextPath}/user/infomation" class="d-block"><h2>${lastName}</h2></a>
-                             
+                            <a href="#" class="d-block">Bảo Thành</a>
                         </div>
-                   
                     </div>
 
                     <!-- Sidebar Menu -->
@@ -86,7 +93,8 @@
                             <li class="nav-item has-treeview menu-open">
                                 
                                 <ul class="nav nav-treeview">
-                                    <li class="nav-item">
+                                    
+                                   <li class="nav-item">
                                         <a href="student2" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Manage Student Info</p>
@@ -104,15 +112,7 @@
                                             <p>Follow Up</p>
                                         </a>
                                     </li>
-                                   <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/logout" class="nav-link">
-                                    <i ></i>
-                                    <p>
-                                       Đăng Xuất
-
-                                    </p>
-                                </a>
-                            </li>
+                                    
                                 </ul>
                             </li>
                             
@@ -125,25 +125,66 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
+            <<div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-                 <div class="content-header">
+                <div class="content-header">
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h3 class="m-0 text-dark">WELCOME TO ADMIN</h3><br>
-                                <img style="height: 300px;" src="${pageContext.request.contextPath}/images/logocaodang.jpg" alt=""/>
-                                
-                            </div><!-- /.col -->
-                            <div class="col-sm-6">
-                               
-                                <img style="margin-top: 35px; height: 300px; width: 250px;" src="${pageContext.request.contextPath}/images/unnamed.jpg" alt=""/>
-                                
-                            </div>
+                                <h1 class="m-0 text-dark">Student Manager</h1>
+                            </div>                           
                         </div>
                     </div>
                 </div>
-               
+                
+                
+                <div class="card">
+                    <c:if test="${studentList.size()>0}">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>                                    
+                                    <th>Address</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Birth Date</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Gender</th>
+                                    
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <c:forEach var="student" items="${studentList}">
+                                    <tr>
+                                        <td>${student.id}</td>
+                                        <td>${student.firstName}</td>
+                                        <td>${student.lastName}</td>                                         
+                                        <td>${student.address}</td>
+                                        <td>${student.email}</td>
+                                        <td>${student.phone}</td>
+                                        <td>${student.birthDate}</td>
+                                        <td>${student.startDate}</td>
+                                        <td>${student.endDate}</td>
+                                        <td>${student.sex}</td>
+                                        
+                                        <td><a href="edit2/${student.id}" style="color: yellowgreen;" class="fa fa fa-pen"></a></td>
+                                        <td><a href="delete2/${student.id}" style="color: red;" class="fa fa-trash"></a></td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </c:if>
+                    
+                    <c:if test="${studentList.size()==0}">
+                        <c:out value="There is no result.Try again" />
+                    </c:if>
+                </div>
+
+            <!-- Control Sidebar -->
             <aside class="control-sidebar control-sidebar-dark">
                 <!-- Control sidebar content goes here -->
             </aside>

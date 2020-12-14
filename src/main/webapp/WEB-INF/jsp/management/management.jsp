@@ -137,24 +137,18 @@
                         <div class="row mb-2">
                             <div class="col-sm-6">
                                 <h3 class="m-0 text-dark">WELCOME TO ADMIN</h3><br>
-                                <img style="height: 300px;" src="images/logocaodang.jpg" alt=""/>
+                                <img style="height: 300px;" src="${pageContext.request.contextPath}/images/logocaodang.jpg" alt=""/>
                                 
                             </div><!-- /.col -->
                             <div class="col-sm-6">
                                
-                                <img style="margin-top: 35px; height: 300px; width: 250px;" src="images/unnamed.jpg" alt=""/>
+                                <img style="margin-top: 35px; height: 300px; width: 250px;" src="${pageContext.request.contextPath}/images/unnamed.jpg" alt=""/>
                                 
-                            </div><!-- /.col -->
-                        </div><!-- /.row -->
-                    </div><!-- /.container-fluid -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.content-header -->
-
-                <!-- Main content -->
                 
-            <!-- /.content-wrapper -->
-
-            <!-- Control Sidebar -->
             <aside class="control-sidebar control-sidebar-dark">
                 <!-- Control sidebar content goes here -->
             </aside>

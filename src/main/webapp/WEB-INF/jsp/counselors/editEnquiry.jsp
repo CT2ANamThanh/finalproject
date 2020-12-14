@@ -89,19 +89,19 @@
                                 
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="student2" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Manage Student Info</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="enquiry" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Manage Enquiry</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="report" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Follow Up</p>
                                         </a>
