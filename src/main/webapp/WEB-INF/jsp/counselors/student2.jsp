@@ -1,6 +1,6 @@
 <%-- 
-    Document   : follow
-    Created on : Dec 7, 2020, 3:24:09 PM
+    Document   : student2
+    Created on : Dec 9, 2020, 9:59:23 AM
     Author     : Administrator
 --%>
 
@@ -43,14 +43,12 @@
                     </li>
 
                     
-                    <li class="nav-item">
-                        <a  class="nav-link" href="addNewFollow">Add New</a>
-                    </li>
+                    
 
                 </ul>
 
                 <!-- SEARCH FORM -->
-                 <form class="form-inline ml-3" action="${pageContext.request.contextPath}/search5" method="get">
+                 <form class="form-inline ml-3" action="${pageContext.request.contextPath}/search6" method="get">
                     <div class="input-group input-group-sm">
                         <input class="form-control form-control-navbar" type="text" name="searchText" id="searchText" value="${searchText}" placeholder="Search...">
                         <div class="input-group-append">
@@ -95,7 +93,8 @@
                             <li class="nav-item has-treeview menu-open">
                                 
                                 <ul class="nav nav-treeview">
-                                    <li class="nav-item">
+                                    
+                                   <li class="nav-item">
                                         <a href="student2" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Manage Student Info</p>
@@ -113,7 +112,7 @@
                                             <p>Follow Up</p>
                                         </a>
                                     </li>
-                                   
+                                    
                                 </ul>
                             </li>
                             
@@ -132,7 +131,7 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1 class="m-0 text-dark">Follow Up</h1>
+                                <h1 class="m-0 text-dark">Student Manager</h1>
                             </div>                           
                         </div>
                     </div>
@@ -140,43 +139,47 @@
                 
                 
                 <div class="card">
-                    <c:if test="${followList.size()>0}">
+                    <c:if test="${studentList.size()>0}">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>ID</th>                                   
-                                    <th>Enquiry</th>                                    
-                                    <th>Method</th>
-                                    <th>Date</th>
-                                    <th>Content</th>
-                                    <th>Result</th>
-                                    <th>Meet Time</th>
-                                    
-                                    
+                                    <th>ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>                                    
+                                    <th>Address</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Birth Date</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Gender</th>
                                     
                                 </tr>
                             </thead>
                             
                             <tbody>
-                                <c:forEach var="follow" items="${followList}">
+                                <c:forEach var="student" items="${studentList}">
                                     <tr>
-                                        <td>${follow.id}</td>
-                                        <td>${follow.enquiry.name}</td>
-                                        <td>${follow.method.methodName}</td>                                         
-                                        <td>${follow.date}</td>
-                                        <td>${follow.content}</td>
-                                        <td>${follow.result}</td>
-                                        <td>${follow.meetTime}</td>
-                                                                             
-                                        <td><a href="edit1/${follow.id}" style="color: yellowgreen;" class="fa fa fa-pen"></a></td>
-                                        <td><a href="delete1/${follow.id}" style="color: red;" class="fa fa-trash"></a></td>
+                                        <td>${student.id}</td>
+                                        <td>${student.firstName}</td>
+                                        <td>${student.lastName}</td>                                         
+                                        <td>${student.address}</td>
+                                        <td>${student.email}</td>
+                                        <td>${student.phone}</td>
+                                        <td>${student.birthDate}</td>
+                                        <td>${student.startDate}</td>
+                                        <td>${student.endDate}</td>
+                                        <td>${student.sex}</td>
+                                        
+                                        <td><a href="edit2/${student.id}" style="color: yellowgreen;" class="fa fa fa-pen"></a></td>
+                                        <td><a href="delete2/${student.id}" style="color: red;" class="fa fa-trash"></a></td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
                         </table>
                     </c:if>
                     
-                    <c:if test="${followList.size()==0}">
+                    <c:if test="${studentList.size()==0}">
                         <c:out value="There is no result.Try again" />
                     </c:if>
                 </div>

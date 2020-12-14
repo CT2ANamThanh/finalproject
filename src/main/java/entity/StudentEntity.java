@@ -1,7 +1,8 @@
-
 package entity;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,7 +15,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
-
 @Entity
 @Table(name = "student")
 public class StudentEntity {
@@ -22,7 +22,7 @@ public class StudentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
+
     private String firstName;
     private String lastName;
     private String address;
@@ -35,20 +35,16 @@ public class StudentEntity {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
     private String sex;
-   
-
-    
 
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
     List<ActionEntity> actionList;
 
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
     List<StudentCourseEntity> studentCourseList;
-    
+
     /*@ManyToOne
     @JoinColumn(name ="centerId")
     private CenterEntity center;*/
-    
     @ManyToOne
     @JoinColumn(name = "userId")
     private UserEntity user;
@@ -63,7 +59,7 @@ public class StudentEntity {
     public void setId(int id) {
         this.id = id;
     }
-  
+
     public String getFirstName() {
         return firstName;
     }
@@ -127,7 +123,6 @@ public class StudentEntity {
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
-       
 
     public String getSex() {
         return sex;
@@ -136,6 +131,7 @@ public class StudentEntity {
     public void setSex(String sex) {
         this.sex = sex;
     }
+
     public List<ActionEntity> getActionList() {
         return actionList;
     }
@@ -159,7 +155,6 @@ public class StudentEntity {
     public void setCenter(CenterEntity center) {
         this.center = center;
     }*/
-
     public UserEntity getUser() {
         return user;
     }
@@ -169,11 +164,6 @@ public class StudentEntity {
     }
 
     
-
-    
-
-    
-
     
 
 }

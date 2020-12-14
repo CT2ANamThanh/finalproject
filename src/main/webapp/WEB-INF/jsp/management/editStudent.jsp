@@ -44,9 +44,7 @@
                     </li>
 
 
-                    <li class="nav-item">
-                        <a  class="nav-link" href="addNewStudent">Add New Student</a>
-                    </li>
+                    
 
                 </ul>
 

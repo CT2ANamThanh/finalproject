@@ -183,6 +183,7 @@
                                     </tr>
                                 </c:forEach>
                             </tbody>
+                            <h3><a href="management/downloadExcel">Export</a></h3>
                         </table>
                     </c:if>
 

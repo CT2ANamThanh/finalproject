@@ -20,12 +20,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import repository.BatchRepository;
 import repository.CenterRepository;
 import repository.CourseRepository;
 import repository.FeePlanRepository;
 import repository.StudentRepository;
 import repository.UserRepository;
+import utils.ReportStudentToExcelView;
 
 @Controller
 @RequestMapping(value = "/")
@@ -46,8 +48,9 @@ public class ManagementController {
     @Autowired
     CourseRepository courseRepo;
 
-     @Autowired
-     UserRepository userRepo;
+    @Autowired
+    UserRepository userRepo;
+
     @RequestMapping(value = "management/management", method = RequestMethod.GET)
     public String showManagementPage(Model model) {
 
@@ -255,6 +258,16 @@ public class ManagementController {
         model.addAttribute("endDate", endDate);
 
         return "management/report";
+    }
+    
+    //EXCEL
+    @RequestMapping(value = "/management/downloadExcel", method = RequestMethod.GET)
+    public ModelAndView downloadExcel(Model model) {
+
+        List<StudentEntity> student =  (List<StudentEntity>)studentRepo.findAll();
+        ReportStudentToExcelView reportList = new ReportStudentToExcelView();
+        return new ModelAndView(reportList, "student",student);
+        
     }
 
     private void setCenterDropDownList(Model model) {

@@ -84,7 +84,7 @@
                                 
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="student2" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Manage Student Info</p>
                                         </a>
@@ -124,18 +124,23 @@
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-                <div class="content-header">
+                 <div class="content-header">
                     <div class="container-fluid">
-                        
-                    </div><!-- /.container-fluid -->
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h3 class="m-0 text-dark">WELCOME TO ADMIN</h3><br>
+                                <img style="height: 300px;" src="${pageContext.request.contextPath}/images/logocaodang.jpg" alt=""/>
+                                
+                            </div><!-- /.col -->
+                            <div class="col-sm-6">
+                               
+                                <img style="margin-top: 35px; height: 300px; width: 250px;" src="${pageContext.request.contextPath}/images/unnamed.jpg" alt=""/>
+                                
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.content-header -->
-
-                <!-- Main content -->
-                
-            <!-- /.content-wrapper -->
-
-            <!-- Control Sidebar -->
+               
             <aside class="control-sidebar control-sidebar-dark">
                 <!-- Control sidebar content goes here -->
             </aside>
