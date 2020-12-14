@@ -8,7 +8,6 @@
                            http://www.springframework.org/schema/security 
                            http://www.springframework.org/schema/security/spring-security.xsd
 ">
-    <!--login-->
     <security:authentication-manager>
         <security:authentication-provider>
             <security:jdbc-user-service
@@ -33,16 +32,11 @@
             username-parameter="username"          
             password-parameter="password"
         />
-        <!--logout-->
         <security:logout
             invalidate-session="true"
             logout-success-url="/login"
         />
     </security:http>
-    
-    <!--send Email-->
-    
-    
     <bean id="myAuthenticationSuccessHandler"
             class="redirectLogin.MySimpleUrlAuthenticationSuccessHandler" />
       

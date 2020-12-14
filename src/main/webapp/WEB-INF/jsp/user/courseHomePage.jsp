@@ -122,13 +122,16 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <div  class="content-wrapper">
+            
+            <div style="background:white url(https://d3.violet.vn/uploads/previews/document/0/114/992/A001.jpg.jpg) repeat fixed;width:1000px;height:200px;" class="content-wrapper">
+               
                 <!-- Content Header (Page header) -->
                 <div class="content-header">
+                   
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1 class="m-0 text-dark">Đăng Ký Học</h1>
+                                <h1 style="color: red;" class="m-0 text-dark">Đăng Ký Học</h1>
                             </div>                           
                         </div>
                     </div>

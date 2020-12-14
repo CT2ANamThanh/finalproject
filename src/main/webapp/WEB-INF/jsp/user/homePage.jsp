@@ -108,13 +108,11 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h3 class="m-0 text-dark">Lịch Học</h3><br>
-                                <img style="height: 300px;" src="images/logocaodang.jpg" alt=""/>
+                                
+                                
+                                <img src="${pageContext.request.contextPath}/images/cntt.jpg" alt=""/>
                             </div><!-- /.col -->
-                            <div class="col-sm-6">
-
-                                <img style="margin-top: 35px; height: 300px; width: 250px;" src="images/unnamed.jpg" alt=""/>
-                            </div><!-- /.col -->
+                           
                         </div><!-- /.row -->
                     </div><!-- /.container-fluid -->
                 </div>

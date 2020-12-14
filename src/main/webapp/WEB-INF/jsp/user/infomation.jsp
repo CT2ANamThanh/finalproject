@@ -149,8 +149,7 @@
                                                 </li>                       
                                                                  
                                                 </li>                       
-                                                <li><a href="#" target="_blank"><i class="glyphicon glyphicon-shopping-cart"></i>Lịch Học Cá Nhân</a>                       
-                                                </li>                       
+                                                                    
                                                                       
                                                 </li>                   
                                             </ul>                
