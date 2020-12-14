@@ -44,7 +44,7 @@
                     </li>
 
 
-                    
+
 
                 </ul>
 
@@ -86,7 +86,7 @@
                             <li class="nav-item has-treeview menu-open">
 
                                 <ul class="nav nav-treeview">
-                                    
+
                                     <li class="nav-item">
                                         <a href="student" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
@@ -111,15 +111,15 @@
                                             <p>Report</p>
                                         </a>
                                     </li>
-                                     <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/logout" class="nav-link">
-                                    <i ></i>
-                                    <h4>
-                                       Đăng Xuất
+                                    <li class="nav-item">
+                                        <a href="${pageContext.request.contextPath}/logout" class="nav-link">
+                                            <i ></i>
+                                            <h4>
+                                                Đăng Xuất
 
-                                    </h4>
-                                </a>
-                            </li>
+                                            </h4>
+                                        </a>
+                                    </li>
 
                                 </ul>
                             </li>
@@ -133,9 +133,10 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <<div class="content-wrapper">
+            <div style="background:white url(https://stockdep.net/files/images/19266705.jpg) repeat fixed;width:1000px;height:200px;" class="content-wrapper">
+
                 <!-- Content Header (Page header) -->
-                
+
 
                 <mvc:form modelAttribute="student" action="${pageContext.request.contextPath}/update" method="post">
                     <table>
@@ -153,7 +154,7 @@
                             <td>Last Name(*):</td>
                             <td><mvc:input path="lastName" required="true"/></td>
                         </tr>
-                        
+
                         <tr>
                             <td>Address(*):</td>
                             <td><mvc:input path="address" required="true"/></td>
@@ -184,7 +185,7 @@
                             <td>Gender(*):</td>
                             <td><mvc:input path="sex" required="true"/></td>
                         </tr>
-                        
+
 
                         <tr>
                             <td colspan="2"><input type="submit" value="save"></td>

@@ -142,7 +142,7 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <<div class="content-wrapper">
+             <div style="background:white url(https://stockdep.net/files/images/19266705.jpg) repeat fixed;width:1000px;height:200px;" class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <div class="content-header">
                     <div class="container-fluid">

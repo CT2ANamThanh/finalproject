@@ -68,12 +68,12 @@
                 <!-- Sidebar -->
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
-                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
                             <img style="margin-top: 18px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/unnamed.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
-                            <a style="margin-top: 10px;"  class="d-block"><h2>${lastName}</h2></a>
+                            <a style="margin-top: 10px;"  class="d-block"><h3>${lastName}</h3></a>
                         </div>
                     </div>
 
@@ -111,15 +111,15 @@
                                             <p>Report</p>
                                         </a>
                                     </li>
-                                     <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/logout" class="nav-link">
-                                    <i ></i>
-                                    <h4>
-                                       Đăng Xuất
+                                    <li class="nav-item">
+                                        <a href="${pageContext.request.contextPath}/logout" class="nav-link">
+                                            <i ></i>
+                                            <h4>
+                                                Đăng Xuất
 
-                                    </h4>
-                                </a>
-                            </li>
+                                            </h4>
+                                        </a>
+                                    </li>
 
                                 </ul>
                             </li>
@@ -133,7 +133,8 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <<div class="content-wrapper">
+            <div style="background:white url(https://stockdep.net/files/images/19266705.jpg) repeat fixed;width:1000px;height:200px;" class="content-wrapper">
+
                 <!-- Content Header (Page header) -->
 
                 <form class="form-inline ml-3" action="${pageContext.request.contextPath}/search3" method="get">
@@ -171,7 +172,7 @@
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th>Gender</th>
-                                    
+
                                 </tr>
                             </thead>
 
@@ -188,7 +189,7 @@
                                         <td>${student.startDate}</td>
                                         <td>${student.endDate}</td>
                                         <td>${student.sex}</td>
-                                        
+
 
                                     </tr>
                                 </c:forEach>
