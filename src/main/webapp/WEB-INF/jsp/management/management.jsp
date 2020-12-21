@@ -71,7 +71,7 @@
                             <img src="${pageContext.request.contextPath}/ADMIN/dist/img/unnamed.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
-                            <a style="margin-top: 10px;"  class="d-block"><h3>${lastName}</h3></a>
+                            <a style="margin-top: 1px;"  class="d-block"><h3>${lastName}</h3></a>
                         </div>
                     </div>
 
@@ -85,25 +85,25 @@
                                 <ul class="nav nav-treeview">
 
                                     <li class="nav-item">
-                                        <a href="student" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/student/1" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Student Manage</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="batch" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/batch/1" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Classroom Manage</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="course" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/course/1" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>View All Center Courses</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="report" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/report" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Report</p>
                                         </a>

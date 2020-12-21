@@ -44,7 +44,7 @@
 
 
                     <li class="nav-item">
-                        <a  class="nav-link" href="addNewBatch">Add New Class</a>
+                        <a  class="nav-link" href='<c:url value="/management/addNewBatch"/>'>Add New Class</a>
                     </li>
 
                 </ul>
@@ -98,25 +98,25 @@
                                 <ul class="nav nav-treeview">
 
                                     <li class="nav-item">
-                                        <a href="student" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/student/1" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Student Manage</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="batch" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/batch" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Classroom Manage</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="course" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/course" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>View All Center Courses</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="report" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/report" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Report</p>
                                         </a>
@@ -124,10 +124,10 @@
                                     <li class="nav-item">
                                         <a href="${pageContext.request.contextPath}/logout" class="nav-link">
                                             <i ></i>
-                                            <h4>
+                                            <p>
                                                 Đăng Xuất
 
-                                            </h4>
+                                            </p>
                                         </a>
                                     </li>
 
@@ -143,8 +143,7 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <div style="background:white url(https://stockdep.net/files/images/19266705.jpg) repeat fixed;width:1000px;height:200px;" class="content-wrapper">
-
+            <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <div class="content-header">
                     <div class="container-fluid">
@@ -180,7 +179,7 @@
                                         <td>${batch.className}</td>
                                         <td>${batch.batchStatus}</td>
 
-                                        <td><a href="edit1/${batch.id}" style="color: yellowgreen;" class="fa fa fa-pen"></a></td>
+                                        <td><a href='<c:url value="/management/edit1/${batch.id}"/>' style="color: yellowgreen;" class="fa fa fa-pen"></a></td>
                                         <td><a href="delete1/${batch.id}" style="color: red;" class="fa fa-trash"></a></td>
                                     </tr>
                                 </c:forEach>
@@ -191,6 +190,11 @@
                     <c:if test="${batchList.size()==0}">
                         <c:out value="There is no result.Try again" />
                     </c:if>
+                    <ul class="pagination pagination-sm">
+                        <li class="page-item"><a class="page-link" href='<c:url value="/management/batch/1"/>'>1</a></li>
+                        <li class="page-item"><a class="page-link" href='<c:url value="/management/batch/2"/>'>2</a></li>
+                        <li class="page-item"><a class="page-link" href='<c:url value="/management/batch/3"/>'>3</a></li>
+                    </ul>
                 </div>
 
                 <!-- Control Sidebar -->

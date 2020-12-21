@@ -65,8 +65,17 @@ public class ManagementController {
     }
 
     //STUDENT MANAGE
-    @RequestMapping(value = "management/student", method = RequestMethod.GET)
-    public String showManagerStudent(Model model) {
+    @RequestMapping(value = "management/student/{page_id}", method = RequestMethod.GET)
+    public String showManagerStudent(Model model,@PathVariable("page_id") int page_id) {
+        //pagination
+       
+        int limit = 5;
+        int offset= (page_id -1)*limit;
+        
+
+        List<StudentEntity> studentList = studentRepo.getEmployeesByPage(limit, offset);
+        model.addAttribute("studentList", studentList);
+        //List
         String lastName = "";
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
 
@@ -74,15 +83,15 @@ public class ManagementController {
         lastName = student.getLastName();
 
         model.addAttribute("lastName", lastName);
-        List<StudentEntity> studentList = (List<StudentEntity>) studentRepo.findAll();
-        model.addAttribute("studentList", studentList);
+        //List<StudentEntity> studentList = (List<StudentEntity>) studentRepo.findAll();
+        //model.addAttribute("studentList", studentList);
         return "management/student";
     }
 
-    @RequestMapping(value = "management/delete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "management/student/delete/{id}", method = RequestMethod.GET)
     public String deleteStudent(@PathVariable(name = "id") int id) {
         studentRepo.deleteById(id);
-        return "redirect:/management/student";
+        return "redirect:/management/student/1";
     }
 
     @RequestMapping(value = "management/edit/{id}", method = RequestMethod.GET)
@@ -97,7 +106,7 @@ public class ManagementController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String updateProduct(StudentEntity student) {
         StudentEntity newStudent = studentRepo.save(student);
-        return "redirect:/management/student";
+        return "redirect:/management/student/1";
     }
 
     @RequestMapping(value = "management/addNewStudent", method = RequestMethod.GET)
@@ -119,7 +128,7 @@ public class ManagementController {
         userRepo.save(user);
         student.setUser(user);
         studentRepo.save(student);
-        return "redirect:/management/student";
+        return "redirect:/management/student/1";
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
@@ -133,8 +142,16 @@ public class ManagementController {
     }
 
     //BATCH MANAGE
-    @RequestMapping(value = "management/batch", method = RequestMethod.GET)
-    public String showManagerBatch(Model model) {
+    @RequestMapping(value = "management/batch/{page_id}", method = RequestMethod.GET)
+    public String showManagerBatch(Model model,@PathVariable("page_id") int page_id) {
+        //pagination
+       
+        int limit = 5;
+        int offset= (page_id -1)*limit;
+        
+        List<BatchEntity> batchList = batchRepo.getEmployeesByPage2(limit, offset);
+        model.addAttribute("batchList", batchList);
+        //List
         String lastName = "";
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
 
@@ -142,8 +159,8 @@ public class ManagementController {
         lastName = student.getLastName();
 
         model.addAttribute("lastName", lastName);
-        List<BatchEntity> batchList = (List<BatchEntity>) batchRepo.findAll();
-        model.addAttribute("batchList", batchList);
+        //List<BatchEntity> batchList = (List<BatchEntity>) batchRepo.findAll();
+        //model.addAttribute("batchList", batchList);
         return "management/batch";
     }
 
@@ -171,13 +188,13 @@ public class ManagementController {
     public String saveNewBatch(BatchEntity batch, Model model) {
 
         batchRepo.save(batch);
-        return "redirect:/management/batch";
+        return "redirect:/management/batch/1";
     }
 
-    @RequestMapping(value = "management/delete1/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "management/batch/delete1/{id}", method = RequestMethod.GET)
     public String deleteBatch(@PathVariable(name = "id") int id) {
         batchRepo.deleteById(id);
-        return "redirect:/management/batch";
+        return "redirect:/management/batch/1";
     }
 
     @RequestMapping(value = "management/edit1/{id}", method = RequestMethod.GET)
@@ -200,7 +217,7 @@ public class ManagementController {
     @RequestMapping(value = "/update1", method = RequestMethod.POST)
     public String updateBatch(BatchEntity batch) {
         BatchEntity newBatch = batchRepo.save(batch);
-        return "redirect:/management/batch";
+        return "redirect:/management/batch/1";
     }
 
     @RequestMapping(value = "/search1", method = RequestMethod.GET)
@@ -214,8 +231,17 @@ public class ManagementController {
     }
 
     //COURSE MANAGE
-    @RequestMapping(value = "management/course", method = RequestMethod.GET)
-    public String showManagerCourse(Model model) {
+    @RequestMapping(value = "management/course/{page_id}", method = RequestMethod.GET)
+    public String showManagerCourse(Model model,@PathVariable("page_id") int page_id) {
+        //pagination
+       
+        int limit = 5;
+        int offset= (page_id -1)*limit;
+        
+        List<CourseEntity> courseList = courseRepo.getEmployeesByPage3(limit, offset);
+        model.addAttribute("courseList", courseList);
+        
+        //List
         String lastName = "";
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
 
@@ -223,8 +249,8 @@ public class ManagementController {
         lastName = student.getLastName();
 
         model.addAttribute("lastName", lastName);
-        List<CourseEntity> courseList = (List<CourseEntity>) courseRepo.findAll();
-        model.addAttribute("courseList", courseList);
+        //List<CourseEntity> courseList = (List<CourseEntity>) courseRepo.findAll();
+        //model.addAttribute("courseList", courseList);
         return "management/course";
     }
 
@@ -250,7 +276,7 @@ public class ManagementController {
     public String saveNewCourse(CourseEntity course, Model model) {
 
         courseRepo.save(course);
-        return "redirect:/management/course";
+        return "redirect:/management/course/1";
     }
 
     @RequestMapping(value = "management/edit2/{id}", method = RequestMethod.GET)
@@ -277,13 +303,13 @@ public class ManagementController {
     @RequestMapping(value = "/update2", method = RequestMethod.POST)
     public String updateCourse(CourseEntity course) {
         CourseEntity newCourse = courseRepo.save(course);
-        return "redirect:management/course";
+        return "redirect:management/course/1";
     }
 
-    @RequestMapping(value = "management/delete2/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "management/course/delete2/{id}", method = RequestMethod.GET)
     public String deleteCourse(@PathVariable(name = "id") int id) {
         courseRepo.deleteById(id);
-        return "redirect:/management/course";
+        return "redirect:/management/course/1";
     }
 
     @RequestMapping(value = "/search2", method = RequestMethod.GET)
@@ -322,15 +348,15 @@ public class ManagementController {
 
         return "management/report";
     }
-    
+
     //EXCEL
     @RequestMapping(value = "/management/downloadExcel", method = RequestMethod.GET)
     public ModelAndView downloadExcel(Model model) {
 
-        List<StudentEntity> student =  (List<StudentEntity>)studentRepo.findAll();
+        List<StudentEntity> student = (List<StudentEntity>) studentRepo.findAll();
         ReportStudentToExcelView reportList = new ReportStudentToExcelView();
-        return new ModelAndView(reportList, "student",student);
-        
+        return new ModelAndView(reportList, "student", student);
+
     }
 
     private void setCenterDropDownList(Model model) {

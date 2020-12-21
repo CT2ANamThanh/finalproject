@@ -56,8 +56,18 @@ public class CounselorsController {
 
 
     //Manage Student Counselors
-     @RequestMapping(value = "counselors/student2", method = RequestMethod.GET)
-    public String showManagerStudent(Model model) {
+     @RequestMapping(value = "counselors/student2/{page_id}", method = RequestMethod.GET)
+    public String showManagerStudent(Model model,@PathVariable("page_id") int page_id) {
+        //pagination
+       
+        int limit = 5;
+        int offset= (page_id -1)*limit;
+        
+
+        List<StudentEntity> studentList = studentRepo.getEmployeesByPage(limit, offset);
+        model.addAttribute("studentList", studentList);
+        
+        //List
         String lastName = "";
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
 
@@ -65,14 +75,14 @@ public class CounselorsController {
         lastName = student.getLastName();
 
         model.addAttribute("lastName", lastName);
-        List<StudentEntity> studentList = (List<StudentEntity>) studentRepo.findAll();
-        model.addAttribute("studentList", studentList);
+        //List<StudentEntity> studentList = (List<StudentEntity>) studentRepo.findAll();
+        //model.addAttribute("studentList", studentList);
         return "counselors/student2";
     }
-    @RequestMapping(value = "counselors/delete2/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "counselors/student2/delete2/{id}", method = RequestMethod.GET)
     public String deleteStudent(@PathVariable(name = "id") int id) {
         studentRepo.deleteById(id);
-        return "redirect:/counselors/student2";
+        return "redirect:/counselors/student2/1";
     }
     @RequestMapping(value = "counselors/edit2/{id}", method = RequestMethod.GET)
     public String showEditStudent(@PathVariable(value = "id") int id, Model model) {
@@ -86,7 +96,7 @@ public class CounselorsController {
     @RequestMapping(value = "/update6", method = RequestMethod.POST)
     public String updateProduct(StudentEntity student) {
         StudentEntity newStudent = studentRepo.save(student);
-        return "redirect:/counselors/student2";
+        return "redirect:/counselors/student2/1";
     }
     @RequestMapping(value = "/search6", method = RequestMethod.GET)
     public String searchStudent(@RequestParam(name = "searchText") String searchText, Model model) {
@@ -100,8 +110,18 @@ public class CounselorsController {
     
 
     //ENQUIRY
-    @RequestMapping(value = "counselors/enquiry", method = RequestMethod.GET)
-    public String showManagerEnquiry(Model model) {
+    @RequestMapping(value = "counselors/enquiry/{page_id}", method = RequestMethod.GET)
+    public String showManagerEnquiry(Model model,@PathVariable("page_id") int page_id) {
+        //pagination
+       
+        int limit = 5;
+        int offset= (page_id -1)*limit;
+        
+
+        List<EnquiryEntity> enquiryList = enquiryRepo.getEmployeesByPage4(limit, offset);
+        model.addAttribute("enquiryList", enquiryList);
+        
+        //List
         String lastName = "";
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
 
@@ -109,8 +129,8 @@ public class CounselorsController {
         lastName = student.getLastName();
 
         model.addAttribute("lastName", lastName);
-        List<EnquiryEntity> enquiryList = (List<EnquiryEntity>) enquiryRepo.findAll();
-        model.addAttribute("enquiryList", enquiryList);
+        //List<EnquiryEntity> enquiryList = (List<EnquiryEntity>) enquiryRepo.findAll();
+        //model.addAttribute("enquiryList", enquiryList);
         return "counselors/enquiry";
     }
 
@@ -133,14 +153,14 @@ public class CounselorsController {
     public String saveNewEnquiry(EnquiryEntity enquiry, Model model) {
 
         enquiryRepo.save(enquiry);
-        return "redirect:/counselors/enquiry";
+        return "redirect:/counselors/enquiry/1";
     }
 
-    @RequestMapping(value = "counselors/delete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "counselors/enquiry/delete/{id}", method = RequestMethod.GET)
     public String deleteEnquiry(@PathVariable(name = "id") int id) {
 
         enquiryRepo.deleteById(id);
-        return "redirect:/counselors/enquiry";
+        return "redirect:/counselors/enquiry/1";
     }
 
     @RequestMapping(value = "counselors/edit/{id}", method = RequestMethod.GET)
@@ -161,7 +181,7 @@ public class CounselorsController {
     @RequestMapping(value = "/update4", method = RequestMethod.POST)
     public String updateEnquiry(EnquiryEntity enquiry) {
         EnquiryEntity newEnquiry = enquiryRepo.save(enquiry);
-        return "redirect:/counselors/enquiry";
+        return "redirect:/counselors/enquiry/1";
     }
 
     @RequestMapping(value = "/search4", method = RequestMethod.GET)
@@ -175,8 +195,18 @@ public class CounselorsController {
     }
 
     //FOLLOW UP
-    @RequestMapping(value = "counselors/follow", method = RequestMethod.GET)
-    public String showFollowUp(Model model) {
+    @RequestMapping(value = "counselors/follow/{page_id}", method = RequestMethod.GET)
+    public String showFollowUp(Model model,@PathVariable("page_id") int page_id) {
+        //pagination
+       
+        int limit = 5;
+        int offset= (page_id -1)*limit;
+        
+
+        List<FollowEntity> followList = followRepo.getEmployeesByPage5(limit, offset);
+        model.addAttribute("followList", followList);
+        
+        //List
         String lastName = "";
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
 
@@ -184,8 +214,8 @@ public class CounselorsController {
         lastName = student.getLastName();
 
         model.addAttribute("lastName", lastName);
-        List<FollowEntity> followList = (List<FollowEntity>) followRepo.findAll();
-        model.addAttribute("followList", followList);
+        //List<FollowEntity> followList = (List<FollowEntity>) followRepo.findAll();
+        //model.addAttribute("followList", followList);
         return "counselors/follow";
     }
 
@@ -211,13 +241,13 @@ public class CounselorsController {
     public String saveNewFollow(FollowEntity follow, Model model) {
 
         followRepo.save(follow);
-        return "redirect:/counselors/follow";
+        return "redirect:/counselors/follow/1";
     }
 
-    @RequestMapping(value = "counselors/delete1/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "counselors/follow/delete1/{id}", method = RequestMethod.GET)
     public String deleteFollow(@PathVariable(name = "id") int id) {
         followRepo.deleteById(id);
-        return "redirect:/counselors/follow";
+        return "redirect:/counselors/follow/1";
     }
 
     @RequestMapping(value = "counselors/edit1/{id}", method = RequestMethod.GET)
@@ -244,7 +274,7 @@ public class CounselorsController {
     @RequestMapping(value = "/update5", method = RequestMethod.POST)
     public String updateFollow(FollowEntity follow) {
         FollowEntity newFollow = followRepo.save(follow);
-        return "redirect:/counselors/follow";
+        return "redirect:/counselors/follow/1";
     }
 
     @RequestMapping(value = "/search5", method = RequestMethod.GET)
