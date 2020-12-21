@@ -44,7 +44,7 @@
                     </li>
 
 
-                    
+
 
                 </ul>
 
@@ -68,7 +68,7 @@
                 <!-- Sidebar -->
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
-                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
                             <img style="margin-top: 18px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/unnamed.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
@@ -86,7 +86,7 @@
                             <li class="nav-item has-treeview menu-open">
 
                                 <ul class="nav nav-treeview">
-                                    
+
                                     <li class="nav-item">
                                         <a href="student" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
@@ -111,15 +111,15 @@
                                             <p>Report</p>
                                         </a>
                                     </li>
-                                     <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/logout" class="nav-link">
-                                    <i ></i>
-                                    <h4>
-                                       Đăng Xuất
+                                    <li class="nav-item">
+                                        <a href="${pageContext.request.contextPath}/logout" class="nav-link">
+                                            <i ></i>
+                                            <h4>
+                                                Đăng Xuất
 
-                                    </h4>
-                                </a>
-                            </li>
+                                            </h4>
+                                        </a>
+                                    </li>
 
                                 </ul>
                             </li>
@@ -133,7 +133,7 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <<div class="content-wrapper">
+            <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <div class="content-header">
                     <div class="container-fluid">
@@ -147,9 +147,9 @@
 
                 <mvc:form modelAttribute="student" action="addNewStudent" method="post" enctype="multipart/form-data">
                     <table>
-                        
-                        
-                        
+
+
+
                         <tr>
                             <td>First Name(*):</td>
                             <td><mvc:input path="firstName" required="true"/></td>
@@ -158,7 +158,7 @@
                             <td>Last Name(*):</td>
                             <td><mvc:input path="lastName" required="true"/></td>
                         </tr>
-                        
+
                         <tr>
                             <td>Address(*):</td>
                             <td><mvc:input path="address" required="true"/></td>
@@ -197,7 +197,7 @@
                             <td>Pass Word(*):</td>
                             <td><mvc:input path="user.password" required="true"/></td>
                         </tr>
-                        
+
                         <tr>
                             <td colspan="2"><input type="submit" value="save"></td>
                         </tr>

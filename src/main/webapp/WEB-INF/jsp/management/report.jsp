@@ -68,12 +68,12 @@
                 <!-- Sidebar -->
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
-                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
                             <img style="margin-top: 18px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/unnamed.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
-                            <a style="margin-top: 10px;"  class="d-block"><h2>${lastName}</h2></a>
+                            <a style="margin-top: 10px;"  class="d-block"><h3>${lastName}</h3></a>
                         </div>
                     </div>
 
@@ -88,38 +88,38 @@
                                 <ul class="nav nav-treeview">
 
                                     <li class="nav-item">
-                                        <a href="student" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/student/1" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Student Manage</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="batch" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/batch" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Classroom Manage</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="course" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/course" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>View All Center Courses</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="report" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/report" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Report</p>
                                         </a>
                                     </li>
-                                     <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/logout" class="nav-link">
-                                    <i ></i>
-                                    <h4>
-                                       Đăng Xuất
+                                    <li class="nav-item">
+                                        <a href="${pageContext.request.contextPath}/logout" class="nav-link">
+                                            <i ></i>
+                                            <p>
+                                                Đăng Xuất
 
-                                    </h4>
-                                </a>
-                            </li>
+                                            </p>
+                                        </a>
+                                    </li>
 
                                 </ul>
                             </li>
@@ -133,13 +133,13 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <<div class="content-wrapper">
+            <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
 
                 <form class="form-inline ml-3" action="${pageContext.request.contextPath}/search3" method="get">
                     <div class="input-group input-group-sm">
                         <table>
-                            <tr>
+                            <tr><br><br>
                                 <th>Start Date:</th>
                                 <td><input type="Date" name="startDate" id="startDate" ></td>
 
@@ -171,7 +171,7 @@
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th>Gender</th>
-                                    
+
                                 </tr>
                             </thead>
 
@@ -188,7 +188,7 @@
                                         <td>${student.startDate}</td>
                                         <td>${student.endDate}</td>
                                         <td>${student.sex}</td>
-                                        
+
 
                                     </tr>
                                 </c:forEach>

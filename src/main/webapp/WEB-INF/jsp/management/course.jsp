@@ -42,9 +42,9 @@
                         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                     </li>
 
-                    
+
                     <li class="nav-item">
-                        <a  class="nav-link" href="addNewCourse">Add New Course</a>
+                        <a  class="nav-link" href='<c:url value="/management/addNewCourse"/>'>Add New Course</a>
                     </li>
 
                 </ul>
@@ -62,7 +62,7 @@
                 </form>
 
                 <!-- Right navbar links -->
-                
+
             </nav>
             <!-- /.navbar -->
 
@@ -78,7 +78,7 @@
                 <!-- Sidebar -->
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
-                  <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
                             <img style="margin-top: 18px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/unnamed.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
@@ -94,46 +94,46 @@
                             <!-- Add icons to the links using the .nav-icon class
                                  with font-awesome or any other icon font library -->
                             <li class="nav-item has-treeview menu-open">
-                                
+
                                 <ul class="nav nav-treeview">
-                                    
+
                                     <li class="nav-item">
-                                        <a href="student" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/student/1" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Student Manage</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="batch" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/batch" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Classroom Manage</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="course" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/course" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>View All Center Courses</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="report" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/report" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Report</p>
                                         </a>
                                     </li>
-                                     <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/logout" class="nav-link">
-                                    <i ></i>
-                                    <h4>
-                                       Đăng Xuất
+                                    <li class="nav-item">
+                                        <a href="${pageContext.request.contextPath}/logout" class="nav-link">
+                                            <i ></i>
+                                            <p>
+                                                Đăng Xuất
 
-                                    </h4>
-                                </a>
-                            </li>
-                                    
+                                            </p>
+                                        </a>
+                                    </li>
+
                                 </ul>
                             </li>
-                            
+
 
                         </ul>
                     </nav>
@@ -143,7 +143,7 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <<div class="content-wrapper">
+            <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <div class="content-header">
                     <div class="container-fluid">
@@ -154,8 +154,8 @@
                         </div>
                     </div>
                 </div>
-                
-                
+
+
                 <div class="card">
                     <c:if test="${courseList.size()>0}">
                         <table class="table table-hover">
@@ -166,10 +166,10 @@
                                     <th>Fee Plan</th>                                   
                                     <th>Start Date</th>
                                     <th>Name</th>
-                                    
+
                                 </tr>
                             </thead>
-                            
+
                             <tbody>
                                 <c:forEach var="course" items="${courseList}">
                                     <tr>
@@ -178,70 +178,75 @@
                                         <td>${course.feeplan.feePlanType}</td>                                      
                                         <td>${course.startDate}</td>
                                         <td>${course.name}</td>
-                                        
-                                        <td><a href="edit2/${course.id}" style="color: yellowgreen;" class="fa fa fa-pen"></a></td>
+
+                                        <td><a href='<c:url value="/management/edit2/${course.id}"/>' style="color: yellowgreen;" class="fa fa fa-pen"></a></td>
                                         <td><a href="delete2/${course.id}" style="color: red;" class="fa fa-trash"></a></td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
                         </table>
                     </c:if>
-                    
+
                     <c:if test="${courseList.size()==0}">
                         <c:out value="There is no result.Try again" />
                     </c:if>
+                    <ul class="pagination pagination-sm">
+                        <li class="page-item"><a class="page-link" href='<c:url value="/management/course/1"/>'>1</a></li>
+                        <li class="page-item"><a class="page-link" href='<c:url value="/management/course/2"/>'>2</a></li>
+                        <li class="page-item"><a class="page-link" href='<c:url value="/management/course/3"/>'>3</a></li>
+                    </ul>
                 </div>
 
-            <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark">
-                <!-- Control sidebar content goes here -->
-            </aside>
-            <!-- /.control-sidebar -->
+                <!-- Control Sidebar -->
+                <aside class="control-sidebar control-sidebar-dark">
+                    <!-- Control sidebar content goes here -->
+                </aside>
+                <!-- /.control-sidebar -->
 
-            <!-- Main Footer -->
-            <footer class="main-footer">
-                <strong>Copyright &copy; 2020 <a>ATHENA Co</a>.</strong>
-                All rights reserved.
-                <div class="float-right d-none d-sm-inline-block">
-                    <b>Version</b> 3.0.5
-                </div>
-            </footer>
-        
-
+                <!-- Main Footer -->
+                <footer class="main-footer">
+                    <strong>Copyright &copy; 2020 <a>ATHENA Co</a>.</strong>
+                    All rights reserved.
+                    <div class="float-right d-none d-sm-inline-block">
+                        <b>Version</b> 3.0.5
+                    </div>
+                </footer>
 
 
-        </div>
-        <!-- ./wrapper -->
 
-        <!-- REQUIRED SCRIPTS -->
-        <!-- jQuery -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery/jquery.min.js"></script>
-        <!-- Bootstrap -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- overlayScrollbars -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="${pageContext.request.contextPath}/ADMIN/dist/js/adminlte.js"></script>
 
-        <!-- OPTIONAL SCRIPTS -->
-        <script src="${pageContext.request.contextPath}/ADMIN/dist/js/demo.js"></script>
+            </div>
+            <!-- ./wrapper -->
 
-        <!-- PAGE PLUGINS -->
-        <!-- jQuery Mapael -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/raphael/raphael.min.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mapael/jquery.mapael.min.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mapael/maps/usa_states.min.js"></script>
-        <!-- ChartJS -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/chart.js/Chart.min.js"></script>
+            <!-- REQUIRED SCRIPTS -->
+            <!-- jQuery -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery/jquery.min.js"></script>
+            <!-- Bootstrap -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- overlayScrollbars -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+            <!-- AdminLTE App -->
+            <script src="${pageContext.request.contextPath}/ADMIN/dist/js/adminlte.js"></script>
 
-        <!-- PAGE SCRIPTS -->
-        <script src="${pageContext.request.contextPath}/ADMIN/dist/js/pages/dashboard2.js"></script>
-        <!-- DataTables -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+            <!-- OPTIONAL SCRIPTS -->
+            <script src="${pageContext.request.contextPath}/ADMIN/dist/js/demo.js"></script>
+
+            <!-- PAGE PLUGINS -->
+            <!-- jQuery Mapael -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/raphael/raphael.min.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+            <!-- ChartJS -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/chart.js/Chart.min.js"></script>
+
+            <!-- PAGE SCRIPTS -->
+            <script src="${pageContext.request.contextPath}/ADMIN/dist/js/pages/dashboard2.js"></script>
+            <!-- DataTables -->
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables/jquery.dataTables.min.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+            <script src="${pageContext.request.contextPath}/ADMIN/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
     </body>
 </html>

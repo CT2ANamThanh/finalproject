@@ -44,7 +44,7 @@
 
                     
                     <li class="nav-item">
-                        <a  class="nav-link" href="addNewFollow">Add New</a>
+                        <a  class="nav-link" href='<c:url value="/counselors/addNewFollow"/>'>Add New</a>
                     </li>
 
                 </ul>
@@ -69,7 +69,7 @@
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
-                <a href="counselors" class="brand-link">
+                <a href="${pageContext.request.contextPath}/counselors/counselors"" class="brand-link">
                     <img src="${pageContext.request.contextPath}/ADMIN/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span class="brand-text font-weight-light">ACADEMY</span>
@@ -180,7 +180,7 @@
                                         <td>${follow.result}</td>
                                         <td>${follow.meetTime}</td>
                                                                              
-                                        <td><a href="edit1/${follow.id}" style="color: yellowgreen;" class="fa fa fa-pen"></a></td>
+                                        <td><a href='<c:url value="/counselors/edit1/${follow.id}"/>' style="color: yellowgreen;" class="fa fa fa-pen"></a></td>
                                         <td><a href="delete1/${follow.id}" style="color: red;" class="fa fa-trash"></a></td>
                                     </tr>
                                 </c:forEach>
@@ -191,6 +191,11 @@
                     <c:if test="${followList.size()==0}">
                         <c:out value="There is no result.Try again" />
                     </c:if>
+                    <ul class="pagination pagination-sm">
+                        <li class="page-item"><a class="page-link" href='<c:url value="/counselors/follow/1"/>'>1</a></li>
+                        <li class="page-item"><a class="page-link" href='<c:url value="/counselors/follow/2"/>'>2</a></li>
+                        <li class="page-item"><a class="page-link" href='<c:url value="/counselors/follow/3"/>'>3</a></li>
+                    </ul>
                 </div>
 
             <!-- Control Sidebar -->

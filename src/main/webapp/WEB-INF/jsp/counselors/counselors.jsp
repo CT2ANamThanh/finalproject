@@ -57,7 +57,7 @@
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
-                <a href="counselors" class="brand-link">
+                <a href="${pageContext.request.contextPath}/counselors/counselors"" class="brand-link">
                     <img src="${pageContext.request.contextPath}/ADMIN/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span class="brand-text font-weight-light">ACADEMY</span>
@@ -87,19 +87,19 @@
                                 
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="student2" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/counselors/student2/1" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Manage Student Info</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="enquiry" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/counselors/enquiry/1" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Manage Enquiry</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="follow" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/counselors/follow/1" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Follow Up</p>
                                         </a>
@@ -125,7 +125,7 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
+            <div style="background:white url(https://stockdep.net/files/images/19266705.jpg) repeat fixed;width:1000px;height:200px;" class="content-wrapper">
                 <!-- Content Header (Page header) -->
                  <div class="content-header">
                     <div class="container-fluid">

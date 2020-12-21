@@ -67,7 +67,7 @@
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
-                <a href="counselors" class="brand-link">
+                <a href="${pageContext.request.contextPath}/counselors/counselors"" class="brand-link">
                     <img src="${pageContext.request.contextPath}/ADMIN/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span class="brand-text font-weight-light">ACADEMY</span>
@@ -112,7 +112,15 @@
                                             <p>Follow Up</p>
                                         </a>
                                     </li>
-                                    
+                                    <li class="nav-item">
+                                        <a href="${pageContext.request.contextPath}/logout" class="nav-link">
+                                            <i ></i>
+                                            <h4>
+                                                Đăng Xuất
+
+                                            </h4>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             
@@ -125,7 +133,7 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <<div class="content-wrapper">
+            <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <div class="content-header">
                     <div class="container-fluid">
@@ -171,7 +179,7 @@
                                         <td>${student.endDate}</td>
                                         <td>${student.sex}</td>
                                         
-                                        <td><a href="edit2/${student.id}" style="color: yellowgreen;" class="fa fa fa-pen"></a></td>
+                                        <td><a href='<c:url value="/counselors/edit2/${student.id}"/>' style="color: yellowgreen;" class="fa fa fa-pen"></a></td>
                                         <td><a href="delete2/${student.id}" style="color: red;" class="fa fa-trash"></a></td>
                                     </tr>
                                 </c:forEach>
@@ -182,6 +190,11 @@
                     <c:if test="${studentList.size()==0}">
                         <c:out value="There is no result.Try again" />
                     </c:if>
+                    <ul class="pagination pagination-sm">
+                        <li class="page-item"><a class="page-link" href='<c:url value="/counselors/student2/1"/>'>1</a></li>
+                        <li class="page-item"><a class="page-link" href='<c:url value="/counselors/student2/2"/>'>2</a></li>
+                        <li class="page-item"><a class="page-link" href='<c:url value="/counselors/student2/3"/>'>3</a></li>
+                    </ul>
                 </div>
 
             <!-- Control Sidebar -->

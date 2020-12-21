@@ -44,7 +44,7 @@
                     </li>
 
 
-                    
+
 
                 </ul>
 
@@ -68,7 +68,7 @@
                 <!-- Sidebar -->
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
-                   <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
                             <img style="margin-top: 18px;" src="${pageContext.request.contextPath}/ADMIN/dist/img/unnamed.jpg" class="img-circle elevation-2" alt="User Image">
                         </div>
@@ -86,40 +86,40 @@
                             <li class="nav-item has-treeview menu-open">
 
                                 <ul class="nav nav-treeview">
-                                    
+
                                     <li class="nav-item">
-                                        <a href="student" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/student/1" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Student Manage</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="batch" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/batch" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Classroom Manage</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="course" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/course" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>View All Center Courses</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="report" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/report" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Report</p>
                                         </a>
                                     </li>
-                                     <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/logout" class="nav-link">
-                                    <i ></i>
-                                    <h4>
-                                       Đăng Xuất
+                                    <li class="nav-item">
+                                        <a href="${pageContext.request.contextPath}/logout" class="nav-link">
+                                            <i ></i>
+                                            <p>
+                                                Đăng Xuất
 
-                                    </h4>
-                                </a>
-                            </li>
+                                            </p>
+                                        </a>
+                                    </li>
 
                                 </ul>
                             </li>
@@ -133,13 +133,13 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <<div class="content-wrapper">
+            <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
 
 
                 <mvc:form modelAttribute="course" action="${pageContext.request.contextPath}/update2" method="post">
                     <table>
-
+                        <br>
                         <tr>
                             <td>ID:</td>
                             <td><mvc:input path="id" readonly="true" /></td>
@@ -158,7 +158,7 @@
                                 </mvc:select>
                             </td>
                         </tr>
-                       <tr>
+                        <tr>
                             <td>Start Date(*):</td>
                             <td><mvc:input path="startDate" type="Date"/></td>
                         </tr>
@@ -166,8 +166,8 @@
                             <td>Name(*):</td>
                             <td><mvc:input path="name" required="true"/></td>
                         </tr>
-                        
-                        
+
+
                         <tr>
                             <td colspan="2"><input type="submit" value="save"></td>
                         </tr>
