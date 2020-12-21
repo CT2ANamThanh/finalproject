@@ -31,7 +31,9 @@
                     </li>
                 </ul>
             </nav>
+            
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
+                
                 <!-- Brand Logo -->
                 <a href="admin" class="brand-link">
                     <img src="${pageContext.request.contextPath}/ADMIN/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
@@ -54,6 +56,7 @@
                    
                     </div>
                     >
+                   
                     <!-- Sidebar Menu -->
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -105,12 +108,13 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <div class="content-header">
+                    
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
                                 
                                 
-                                <img src="${pageContext.request.contextPath}/images/cntt.jpg" alt=""/>
+                                <img style="width: 1300px;height: 600px;" src="${pageContext.request.contextPath}/images/cntt.jpg" alt=""/>
                             </div><!-- /.col -->
                            
                         </div><!-- /.row -->

@@ -1,5 +1,6 @@
 package repository;
 
+import entity.CourseEntity;
 import entity.StudentEntity;
 import java.time.LocalDate;
 import java.util.List;
