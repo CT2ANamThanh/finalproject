@@ -10,7 +10,7 @@
 
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-<link href="${pageContext.request.contextPath}/main/login.css" rel="stylesheet" type="text/css"/>
+<link href="<c:url value='/main/login.css'/>" rel="stylesheet" type="text/css"/>
 
 <html>
     <head>
@@ -35,7 +35,7 @@
                             </div>
                             <input type="text" class="form-control" name="username" placeholder="username" required="true">    
 
-                            <div class="input-group form-group">
+                            <div style="margin-top: 20px;" class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
@@ -43,20 +43,17 @@
                             <input type="password" class="form-control" name="password" placeholder="password" required="true">
 
                             
-                            <div class="form-group">
+                            <div style="margin-top: 10px;"class="form-group">
                                 <input type="submit" value="Login" class="btn float-right login_btn"> 
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             </div>
 
                     </div>
                     <div class="card-footer">
-                        <div class="d-flex justify-content-center links">
-                            Don't have an account?<a href="register">Sign Up</a>
-                        </div>
-                        
+                       
                         </form>
                             <div class="d-flex justify-content-center links">
-                            <p style="color:red;">Error:
+                            <p style="color:red;">
                 <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/></p>
                         </div>
                     </div>

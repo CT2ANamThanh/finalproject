@@ -95,7 +95,7 @@
                                  with font-awesome or any other icon font library -->
                             <li class="nav-item has-treeview menu-open">
 
-                                <ul class="nav nav-treeview">
+                               <ul class="nav nav-treeview">
 
                                     <li class="nav-item">
                                         <a href="${pageContext.request.contextPath}/management/student/1" class="nav-link">
@@ -104,13 +104,13 @@
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="${pageContext.request.contextPath}/management/batch" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/batch/1" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Classroom Manage</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="${pageContext.request.contextPath}/management/course" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/management/course/1" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>View All Center Courses</p>
                                         </a>

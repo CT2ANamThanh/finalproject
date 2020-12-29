@@ -12,6 +12,7 @@ public interface BatchRepository extends CrudRepository<BatchEntity, Integer> {
      
      List<BatchEntity> findByBatchStatusLikeOrClassNameLike(String batchStatus,String className);
      
+ 
      @Query(value="select * from batch order by id asc limit ?1 offset ?2", nativeQuery = true)
      public List<BatchEntity> getEmployeesByPage2(int limit, int offset);
 }

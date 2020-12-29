@@ -13,6 +13,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -75,8 +76,14 @@ public class StudentController {
         return "user/homePage";
     }
 
-    @RequestMapping(value = "user/courseHomePage", method = RequestMethod.GET)
-    public String sendEmail(Model model) {
+    @RequestMapping(value = "user/courseHomePage/{page_id}", method = RequestMethod.GET)
+    public String sendEmail(Model model, @PathVariable("page_id") int page_id) {
+
+        int limit = 5;
+        int offset = (page_id - 1) * limit;
+
+        List<CourseEntity> courseList = courseRepo.getEmployeesByPage3(limit, offset);
+        model.addAttribute("courseList", courseList);
 
         String lastName = "";
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -85,11 +92,8 @@ public class StudentController {
         lastName = student.getLastName();
 
         model.addAttribute("lastName", lastName);
-        List<CourseEntity> courseList = (List<CourseEntity>) courseRepo.findAll();
 
-        model.addAttribute("courseList", courseList);
 //send mail
-
         return "user/courseHomePage";
     }
 
@@ -113,6 +117,7 @@ public class StudentController {
 
     @RequestMapping(value = "user/centerHomePage", method = RequestMethod.GET)
     public String showCenter(Model model) {
+
         String lastName = "";
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
 
@@ -127,8 +132,14 @@ public class StudentController {
         return "user/centerHomePage";
     }
 
-    @RequestMapping(value = "user/batchHomePage", method = RequestMethod.GET)
-    public String showBatch(Model model) {
+    @RequestMapping(value = "user/batchHomePage/{page_id}", method = RequestMethod.GET)
+    public String showBatch(Model model, @PathVariable("page_id") int page_id) {
+
+        int limit = 5;
+        int offset = (page_id - 1) * limit;
+
+        List<BatchEntity> batchList = batchRepo.getEmployeesByPage2(limit, offset);
+        model.addAttribute("batchList", batchList);
         String lastName = "";
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
 
@@ -136,9 +147,6 @@ public class StudentController {
         lastName = student.getLastName();
 
         model.addAttribute("lastName", lastName);
-        List<BatchEntity> batchList = (List<BatchEntity>) batchRepo.findAll();
-
-        model.addAttribute("batchList", batchList);
 
         return "user/batchHomePage";
     }
@@ -168,19 +176,20 @@ public class StudentController {
         return "user/courseHomePage";
     }
 
-    /*@RequestMapping(value = "user/edit", method = RequestMethod.GET)
-    public String showEditInformation(Model model) {
-
+    @RequestMapping(value = "/search8", method = RequestMethod.GET)
+    public String searchBatchHomPage(@RequestParam(name = "searchText") String searchText, Model model) {
+        String lastName = "";
         String userName = SecurityContextHolder.getContext().getAuthentication().getName();
-         StudentEntity student = studentRepo.getStudentByUserName(userName);
-        model.addAttribute("student", student);
 
-        return "user/editInformation";
+        StudentEntity student = studentRepo.getStudentByUserName(userName);
+        lastName = student.getLastName();
+
+        model.addAttribute("lastName", lastName);
+        String searchText1 = "%" + searchText + "%";
+        List<BatchEntity> batchList = batchRepo.findByBatchStatusLikeOrClassNameLike(searchText1, searchText);
+        model.addAttribute("batchList", batchList);
+        model.addAttribute("searchText", searchText);
+        return "user/batchHomePage";
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String updateProduct(StudentEntity student) {
-        StudentEntity newStudent = studentRepo.save(student);
-        return "redirect:/user/editInformation";
-    }*/
 }

@@ -35,7 +35,7 @@
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 
                 <!-- Brand Logo -->
-                <a href="admin" class="brand-link">
+                <a href="homePage" class="brand-link">
                     <img src="${pageContext.request.contextPath}/ADMIN/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span  class="brand-text font-weight-light"href="<c:url value="/"/>">Trung Tâm Lập Trình Viên</span>
@@ -66,22 +66,22 @@
 
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="${pageContext.request.contextPath}/user/courseHomePage" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/user/courseHomePage/1" class="nav-link">
                                             <i ></i>
-                                            <h3>Chương Trình Học</h3>
+                                            <h4>Chương Trình Học</h4>
                                         </a>
                                     </li>
                                    
                                     <li class="nav-item">
-                                        <a href="${pageContext.request.contextPath}/user/batchHomePage" class="nav-link ">
+                                        <a href="${pageContext.request.contextPath}/user/batchHomePage/1" class="nav-link ">
                                             <i ></i>
-                                            <h2>Lớp</h2>
+                                            <h4>Lớp</h4>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="${pageContext.request.contextPath}/user/centerHomePage" class="nav-link">
                                             <i ></i>
-                                            <h3>Trung Tâm</h3>
+                                            <h4>Trung Tâm</h4>
                                         </a>
                                     </li>
                                 </ul>
@@ -114,7 +114,7 @@
                             <div class="col-sm-6">
                                 
                                 
-                                <img style="width: 1300px;height: 600px;" src="${pageContext.request.contextPath}/images/cntt.jpg" alt=""/>
+                                <img style="width: 950px;height: 500px;" src="${pageContext.request.contextPath}/images/cntt.jpg" alt=""/>
                             </div><!-- /.col -->
                            
                         </div><!-- /.row -->

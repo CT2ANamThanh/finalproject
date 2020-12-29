@@ -79,13 +79,13 @@
                                 <ul class="nav nav-treeview">
                                     
                                     <li class="nav-item">
-                                        <a href="courseHomePage" class="nav-link">
+                                        <a href="courseHomePage/1" class="nav-link">
                                             <i ></i>
                                             <h3>Chương Trình Học</h3>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="batchHomePage" class="nav-link ">
+                                        <a href="batchHomePage/1" class="nav-link ">
                                             <i ></i>
                                             <h2>Lớp</h2>
                                         </a>
@@ -116,8 +116,9 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <div  class="content-wrapper">
+           
                 <!-- Content Header (Page header) -->
+                 <div style="background:white url(data:image/jpeg;base64,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) repeat fixed;width:1000px;height:200px;" class="content-wrapper">
                 <div class="content-header">
                     <div class="container-fluid">
                         <div class="row mb-2">
@@ -128,7 +129,7 @@
                     </div>
                 </div>
                 <!-- List Product -->
-                <div style="width: 600px;margin-left: 20px;" class="card">
+                <div style="width: 600px;margin-left: 200px;" class="card">
                     <!-- /.card-header -->
                     <div class="container"> 
                         <h1 class="text-center">Thông Tin Cá Nhân</h1> 
@@ -136,8 +137,10 @@
                             <div class="row profile">        
                                 <div class="col-md-3">          
                                     <div class="profile-sidebar">                          
-                                        <div class="profile-userpic"><img src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg" class="img-responsive" alt="Thông tin cá nhân">               
-                                        </div>                                            
+                                        <div class="profile-userpic"><img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png" class="img-responsive" alt="Thông tin cá nhân">               
+                                        </div> 
+                                          <input  s onclick="location.href = '${pageContext.request.contextPath}/user/homePage'" 
+                                    style=" background: #ffcc00;margin-left: 30px; color: red ;width: 70px; height: 30px;" type="button" value="Trang chủ" />
                                         <div class="profile-usertitle">                   
                                             <div class="profile-usertitle-name"></div>                  
                                             <div class="profile-usertitle-job"></div>              
@@ -145,15 +148,14 @@
                                                                               
                                         <div class="profile-usermenu">                    
                                             <ul class="nav"><div class="logo_menuchinh" style="float:left; padding-top:5px; padding-left:10px; color:#fff; margin-left:auto; margin-right:auto;  line-height:40px; font-size:16px;font-weight:bold;font-family:Arial"></div><div class="menu-icon"><span></span></div>                      
-                                                <li class="active"><a href="edit/${student.id}"> <i class="glyphicon glyphicon-info-sign"></i>Cập nhật thông tin cá nhân </a>                     
-                                                </li>                       
+                                                                   
                                                                  
                                                 </li>                       
                                                                     
                                                                       
                                                 </li>                   
                                             </ul>                
-                                        </div>                            
+                                        </div>                           
                                     </div>     
                                 </div>  
                              
@@ -225,7 +227,7 @@
 
 
 
-        </div>
+     
         <!-- ./wrapper -->
 
         <!-- REQUIRED SCRIPTS -->

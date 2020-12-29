@@ -83,14 +83,14 @@
 
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="${pageContext.request.contextPath}/user/courseHomePage" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/user/courseHomePage/1" class="nav-link">
                                             <i ></i>
                                             <h3>Chương Trình Học</h3>
                                         </a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="${pageContext.request.contextPath}/user/batchHomePage" class="nav-link ">
+                                        <a href="${pageContext.request.contextPath}/user/batchHomePage/1" class="nav-link ">
                                             <i ></i>
                                             <h2>Lớp</h2>
                                         </a>

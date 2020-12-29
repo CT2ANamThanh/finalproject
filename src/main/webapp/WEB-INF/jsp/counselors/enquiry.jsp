@@ -98,19 +98,19 @@
 
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="student2" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/counselors/student2/1" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Manage Student Info</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="enquiry" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/counselors/enquiry/1" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Manage Enquiry</p>
                                         </a>
                                     </li><br>
                                     <li class="nav-item">
-                                        <a href="follow" class="nav-link">
+                                        <a href="${pageContext.request.contextPath}/counselors/follow/1" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Follow Up</p>
                                         </a>

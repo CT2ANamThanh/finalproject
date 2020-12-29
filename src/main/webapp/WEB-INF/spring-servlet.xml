@@ -11,7 +11,7 @@
     <context:annotation-config/>
     <context:component-scan base-package="config,repository,controller"/>
     <mvc:resources mapping="/images/**" location="/images/" />
-    
+     <mvc:resources mapping="/main/**" location="/main/" />
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
