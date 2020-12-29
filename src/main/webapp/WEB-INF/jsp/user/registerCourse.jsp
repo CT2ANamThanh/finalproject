@@ -122,75 +122,54 @@
             </aside>
 
             <!-- Content Wrapper. Contains page content -->
-            <div  class="content-wrapper">
-                <!-- Content Header (Page header) -->
-                <div class="content-header">
-                    <div class="container-fluid">
-                        <div class="row mb-2">
-                            <div class="col-sm-6">
-                               
-                            </div>                           
-                        </div>
-                    </div>
-                </div>
-                <!-- List Product -->
-                
-                    <!-- /.card-header -->
-                    <div style="margin-left: 50px;">
-                    <h1>Please enter your email</h1>
-
-                   
-                   <form>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                           
-                        </div>
-                        
-                       
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                    <!-- /.card-body -->
-
-                    </div>
-                </div>
-
+            <div class="jumbotron text-center">
+                <h1 class="display-3">Thank You!</h1>
+                <p class="lead"><strong>Please check your email</strong> for further instructions on how to complete your account setup.</p>
+                <hr>
+                <p>
+                    Having trouble? <a href="">Contact us</a>
+                </p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-sm" href="https://bootstrapcreative.com/" role="button">Continue to homepage</a>
+                </p>
             </div>
 
-
-
-            <aside class="control-sidebar control-sidebar-dark">
-                <!-- Control sidebar content goes here -->
-            </aside>
-
-
-
         </div>
-        <!-- ./wrapper -->
 
-        <!-- REQUIRED SCRIPTS -->
-        <!-- jQuery -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery/jquery.min.js"></script>
-        <!-- Bootstrap -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- overlayScrollbars -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="${pageContext.request.contextPath}/ADMIN/dist/js/adminlte.js"></script>
 
-        <!-- OPTIONAL SCRIPTS -->
-        <script src="${pageContext.request.contextPath}/ADMIN/dist/js/demo.js"></script>
 
-        <!-- PAGE PLUGINS -->
-        <!-- jQuery Mapael -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/raphael/raphael.min.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mapael/jquery.mapael.min.js"></script>
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mapael/maps/usa_states.min.js"></script>
-        <!-- ChartJS -->
-        <script src="${pageContext.request.contextPath}/ADMIN/plugins/chart.js/Chart.min.js"></script>
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
 
-        <!-- PAGE SCRIPTS -->
-        <script src="${pageContext.request.contextPath}/ADMIN/dist/js/pages/dashboard2.js"></script>
-    </body>
+
+
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="${pageContext.request.contextPath}/ADMIN/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="${pageContext.request.contextPath}/ADMIN/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="${pageContext.request.contextPath}/ADMIN/dist/js/adminlte.js"></script>
+
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="${pageContext.request.contextPath}/ADMIN/dist/js/demo.js"></script>
+
+    <!-- PAGE PLUGINS -->
+    <!-- jQuery Mapael -->
+    <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script src="${pageContext.request.contextPath}/ADMIN/plugins/raphael/raphael.min.js"></script>
+    <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+    <script src="${pageContext.request.contextPath}/ADMIN/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+    <!-- ChartJS -->
+    <script src="${pageContext.request.contextPath}/ADMIN/plugins/chart.js/Chart.min.js"></script>
+
+    <!-- PAGE SCRIPTS -->
+    <script src="${pageContext.request.contextPath}/ADMIN/dist/js/pages/dashboard2.js"></script>
+</body>
 </html>

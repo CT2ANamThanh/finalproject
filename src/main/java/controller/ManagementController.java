@@ -72,7 +72,8 @@ public class ManagementController {
         int limit = 5;
         int offset= (page_id -1)*limit;
         
-
+        
+        
         List<StudentEntity> studentList = studentRepo.getEmployeesByPage(limit, offset);
         model.addAttribute("studentList", studentList);
         //List

@@ -24,5 +24,6 @@ public interface StudentRepository extends CrudRepository<StudentEntity, Integer
 
     @Query(value = "select * from student order by id asc LIMIT ?1 offset ?2", nativeQuery = true)
     public List<StudentEntity> getEmployeesByPage(int limit, int offset);
-
+    
+    
 }

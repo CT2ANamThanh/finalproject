@@ -23,7 +23,7 @@
             <div class="d-flex justify-content-center h-100">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Sign In</h3>
+                        <h3>Đăng nhập</h3>
 
                     </div>
                     <div class="card-body">
@@ -33,14 +33,14 @@
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
                             </div>
-                            <input type="text" class="form-control" name="username" placeholder="username" required="true">    
+                            <input type="text" class="form-control" name="username" placeholder="Tên đăng nhập" required="true">    
 
                             <div style="margin-top: 20px;" class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
                             </div>
-                            <input type="password" class="form-control" name="password" placeholder="password" required="true">
+                            <input type="password" class="form-control" name="password" placeholder="Mật khẩu" required="true">
 
                             
                             <div style="margin-top: 10px;"class="form-group">
